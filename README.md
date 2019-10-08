@@ -23,6 +23,47 @@ Projeto da disciplina Programação e Desenvolvimento de Software II do curso Si
 
 ## CRC's
 
-| Classe | Jogador |
+| **Classe** | **Jogador** |
 |---------------|-----------------|
-|**Responsabilidade** | **Colaborações** |
+|Responsabilidades:| Colaborações: |
+| Gerenciar as cartas de sua mão | Carta|
+| realizar as jogadas  | Jogo |
+|| Rodada|
+
+
+| **Classe** | **Carta** |
+|---------------|-----------------|
+|Responsabilidades:| Colaborações: |
+| O valor da carta | Baralho|
+| O naipe da carta  |Jogador |
+|| Rodada|
+|| JogadorBot|
+
+| **Classe** | **Baralho** |
+|---------------|-----------------|
+|Responsabilidades:| Colaborações: |
+| Armazenar cartas disponiveis para a rodada | Carta |
+| Disponibilizar cartas para os jogadores |Rodada |
+| Embaralhar cartas||
+
+| **Classe** | **Jogo** |
+|---------------|-----------------|
+|Responsabilidades:| Colaborações: |
+| Armazenar os jogadores | Jogador |
+| Armazenar o placar |Rodada |
+
+| **Classe** | **Rodadas** |
+|---------------|-----------------|
+|Responsabilidades:| Colaborações: |
+| Armazenar os vencedores de cada turno | Jogador |
+| Valor da rodada |Baralho |
+|| Cartas|
+
+| **Classe** | **JogadorBot** :: Herança com Jogador |
+|---------------|-----------------|
+|Responsabilidades:| Colaborações: |
+| Gerenciar as cartas de sua mão | Carta|
+| realizar as jogadas automatizadas  | Jogo |
+|| Rodada|
+
+
