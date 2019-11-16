@@ -36,7 +36,7 @@ Projeto da disciplina Programação e Desenvolvimento de Software II do curso Si
 |Responsabilidades:| Colaborações: |
 | O valor da carta | Baralho|
 | O naipe da carta  |Jogador |
-|| Rodada|
+| O número/letra da carta | Rodada|
 || JogadorBot|
 
 | **Classe** | **Baralho** |
