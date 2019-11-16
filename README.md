@@ -52,7 +52,7 @@ Projeto da disciplina Programação e Desenvolvimento de Software II do curso Si
 | Armazenar os jogadores | Jogador |
 | Armazenar o placar |Rodada |
 
-| **Classe** | **Rodadas** |
+| **Classe** | **Rodada** |
 |---------------|-----------------|
 |Responsabilidades:| Colaborações: |
 | Armazenar os vencedores de cada turno | Jogador |
