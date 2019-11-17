@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-
+#include "../src/models/Carta.cpp"
 int main()
 {
     std::cout << "Hello World!\n";
