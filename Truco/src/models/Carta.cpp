@@ -1,65 +1,74 @@
 #include<iostream>
-#include "models/Carta.hpp"
+#include<map>
+#include "../include/models/Carta.hpp"
 using namespace std;
 
 Carta::Carta() {
 
 }
 
-Carta::Carta(int valor, string nipe, char simbolo) {
-	this->valor = valor;
+Carta::Carta(string nipe, char simbolo) {
 	this->nipe = nipe;
 	this->simbolo = simbolo;
 	this->manilha = false;
+	setValor();
+	inicializaMaps();
 }
 
-int getValor() {
+void Carta::inicializaMaps() {
+	inicializaMapCartas();
+	inicializaMapNipes();
+}
+
+void Carta::inicializaMapCartas() {
+
+
+	this->VALOR_CARTAS.insert(pair<char, int>('4', 1));
+	this->VALOR_CARTAS.insert(pair<char, int>('5', 2));
+	this->VALOR_CARTAS.insert(pair<char, int>('6', 3));
+	this->VALOR_CARTAS.insert(pair<char, int>('7', 4));
+	this->VALOR_CARTAS.insert(pair<char, int>('Q', 5));
+	this->VALOR_CARTAS.insert(pair<char, int>('J', 6));
+	this->VALOR_CARTAS.insert(pair<char, int>('K', 7));
+	this->VALOR_CARTAS.insert(pair<char, int>('A', 8));
+	this->VALOR_CARTAS.insert(pair<char, int>('2', 9));
+	this->VALOR_CARTAS.insert(pair<char, int>('3', 10));
+}
+
+void Carta::inicializaMapNipes() {
+	this->VALOR_NIPES.insert(pair<string, int>("OURO", 11));
+	this->VALOR_NIPES.insert(pair<string, int>("ESPADAS", 12));
+	this->VALOR_NIPES.insert(pair<string, int>("COPAS", 13));
+	this->VALOR_NIPES.insert(pair<string, int>("PAUS", 14));
+
+}
+
+int Carta::getValor() {
 	return this->valor;
 }
 
-void setValor(int valor) {
-	this->valor = valor;
-
+void Carta::setValor() {
+	if(!this->manilha)
+	this->valor = this->VALOR_CARTAS[this->simbolo];
 }
 
-string getNipe() {
-	return this.nipe;
+string Carta::getNipe() {
+	return this->nipe;
 }
 
-void setNipe(string nipe) {
+void Carta::setNipe(string nipe) {
 	this->nipe = nipe;
 }
-bool getManilha() {
-	return this.manilha;
+bool Carta::getManilha() {
+	return this->manilha;
 }
-void setManilha(bool manilha) {
-	if (manilha == true) {
-		this->manilha = manilha;
-		switch (this->nipe) {
-		case "COPAS":
-			this->valor = this.COPAS;
-			break;
-		case "OUROS" :
-			this->valor = this.OUROS;
-			break;
-		case "ESPADAS":
-			this->valor = this.ESPADAS;
-			break;
-		case "PAUS":
-			this->valor = this.PAUS;
-			break;
-		default:
-			printf("Nipe invalido\n");
-			break;
-		}
-	}else {
-		
-	}
-	
+void Carta::setManilha(bool manilha) {
+	this->valor = (manilha == true) ? VALOR_NIPES[this->nipe] : VALOR_CARTAS[this->simbolo];
+	this->manilha = manilha;
 }
-char getSimbolo() {
+char Carta::getSimbolo() {
 	return this->simbolo;
 }
-void setSimbolo(char simbolo) {
+void Carta::setSimbolo(char simbolo) {
 	this->simbolo = simbolo;
 }

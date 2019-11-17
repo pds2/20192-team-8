@@ -1,5 +1,6 @@
 #ifndef CARTA_H
 #define CARTA_H
+
 #include <iostream>
 #include <string>
 
@@ -11,17 +12,17 @@ private:
 	string nipe;
 	bool manilha;
 	char simbolo;
+	map <string, int> VALOR_NIPES;
+	map <char, int> VALOR_CARTAS;
 public:
 
-	const int COPAS = 13;
-	const int OUROS = 11;
-	const int ESPADAS = 12;
-	const int PAUS = 14;
-
 	Carta();
-	Carta(int valor, string nipe, char simbolo);
+	Carta(string nipe, char simbolo);
+	void inicializaMaps();
+	void inicializaMapNipes();
+	void inicializaMapCartas();
 	int getValor();
-	void setValor(int valor);
+	void setValor();
 	string getNipe();
 	void setNipe(string nipe);
 	bool getManilha();
