@@ -2,10 +2,11 @@
 //
 
 #include <iostream>
-#include "../src/models/Carta.cpp"
+#include "Carta.hpp"
+#include "Baralho.hpp"
+
 int main()
 {
-    std::cout << "Hello World!\n";
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
