@@ -1,30 +1,30 @@
 #ifndef CARTA_H
 #define CARTA_H
 
-#include <iostream>
 #include <string>
+#include <map>
+#include <Constants.hpp>
 
 using namespace std;
 
 class Carta {
 private:
 	int valor;
-	string nipe;
+	string naipe;
 	bool manilha;
 	char simbolo;
 	map <string, int> VALOR_NIPES;
 	map <char, int> VALOR_CARTAS;
 public:
-
 	Carta();
 	Carta(string nipe, char simbolo);
 	void inicializaMaps();
-	void inicializaMapNipes();
+	void inicializaMapNaipes();
 	void inicializaMapCartas();
 	int getValor();
 	void setValor();
-	string getNipe();
-	void setNipe(string nipe);
+	string getNaipe();
+	void setNaipe(string nipe);
 	bool getManilha();
 	void setManilha(bool manilha);
 	char getSimbolo();
