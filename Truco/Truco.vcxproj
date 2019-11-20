@@ -93,6 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,7 +154,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\models\Baralho.cpp" />
+    <ClCompile Include="src\models\Carta.cpp" />
     <ClCompile Include="src\Truco.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Constants.hpp" />
+    <ClInclude Include="include\models\Carta.hpp" />
+    <ClInclude Include="include\models\Baralho.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
