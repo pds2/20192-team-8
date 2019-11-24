@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Carta.hpp"
 #include "Baralho.hpp"
+#include "Turno.hpp"
 
 int main()
 {
