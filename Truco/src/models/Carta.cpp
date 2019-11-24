@@ -2,17 +2,18 @@
 using namespace std;
 
 Carta::Carta() {
+	inicializaMaps();
 	this->simbolo = 'N';
 	this->valor = -1;
 	this->manilha = false;
 }
 
 Carta::Carta(string naipe, char simbolo) {
+	inicializaMaps();
 	this->naipe = naipe;
 	this->simbolo = simbolo;
 	this->manilha = false;
 	setValor();
-	inicializaMaps();
 }
 
 void Carta::inicializaMaps() {

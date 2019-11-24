@@ -94,6 +94,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,12 +158,15 @@
     <ClCompile Include="src\models\Baralho.cpp" />
     <ClCompile Include="src\models\Carta.cpp" />
     <ClCompile Include="src\models\Jogador.cpp" />
+    <ClCompile Include="src\models\Turno.cpp" />
     <ClCompile Include="src\Truco.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Constants.hpp" />
     <ClInclude Include="include\models\Carta.hpp" />
     <ClInclude Include="include\models\Baralho.hpp" />
+    <ClInclude Include="include\models\Jogador.hpp" />
+    <ClInclude Include="include\models\Turno.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

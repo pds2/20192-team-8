@@ -49,3 +49,8 @@ int Jogador::getNumeroCartas() {
 void Jogador::limparCartasMao() {
 	this->mao = {};
 }
+
+bool Jogador::operator <(const Jogador& outroJogador) const
+{
+	return this->nome < outroJogador.nome;
+}
