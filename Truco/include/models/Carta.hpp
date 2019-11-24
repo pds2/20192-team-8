@@ -29,7 +29,7 @@ public:
 	void setManilha(bool manilha);
 	char getSimbolo();
 	void setSimbolo(char simbolo);
-
+	bool ehIgual(Carta carta);
 
 };
 

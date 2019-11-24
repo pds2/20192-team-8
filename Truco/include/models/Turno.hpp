@@ -10,7 +10,7 @@ using namespace std;
 
 class Turno {
 private:
-	map<Jogador, Carta, ComparadorJogador> jogadas;
+	map<Jogador, Carta> jogadas;
 public:
 	Turno();
 	void registrarJogada(Jogador jogador, Carta carta);

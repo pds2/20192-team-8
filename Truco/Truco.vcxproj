@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="src\models\Baralho.cpp" />
     <ClCompile Include="src\models\Carta.cpp" />
+    <ClCompile Include="src\models\Jogador.cpp" />
     <ClCompile Include="src\models\Turno.cpp" />
     <ClCompile Include="src\Truco.cpp" />
   </ItemGroup>

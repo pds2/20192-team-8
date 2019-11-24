@@ -4,7 +4,10 @@
 #include <iostream>
 #include "Carta.hpp"
 #include "Baralho.hpp"
+#include "Jogador.hpp"
 #include "Turno.hpp"
+
+using namespace std;
 
 int main()
 {
