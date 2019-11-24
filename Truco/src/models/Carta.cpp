@@ -70,3 +70,7 @@ char Carta::getSimbolo() {
 void Carta::setSimbolo(char simbolo) {
 	this->simbolo = simbolo;
 }
+
+bool Carta::ehIgual(Carta carta) {
+	return (this->getSimbolo() == carta.getSimbolo() && this->getNaipe() == carta.getNaipe());
+}

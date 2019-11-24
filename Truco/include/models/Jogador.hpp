@@ -11,18 +11,18 @@ class Jogador {
 private:
 	string nome;
 protected:
-	vector<Carta*> mao;
+	vector<Carta> mao;
 public:
 
 	Jogador(string nome);
-	Jogador(string nome, vector<Carta*> cartas);
+	Jogador(string nome, vector<Carta> cartas);
 	string  getNome();
 	void setNome(string nome);
-	void addCartaMao(Carta* carta);
-	void removeCartaMao(Carta* carta);
+	void addCartaMao(Carta carta);
+	void removeCartaMao(Carta carta);
 	void setMao(vector<Carta> cartas);
-	Carta* getCartaMao(int posicao);
-	std::vector<Carta*> getMao();
+	Carta getCartaMao(int posicao);
+	std::vector<Carta> getMao();
 	int getNumeroCartas();
 	void limparCartasMao();
 

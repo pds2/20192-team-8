@@ -10,7 +10,6 @@ using namespace std;
 
 int main()
 {
-	Jogador jogador = Jogador("Gabriela");
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
