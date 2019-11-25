@@ -7,6 +7,7 @@
 #include <Jogador.hpp>
 #include <Rodada.hpp>
 #include <Turno.hpp>
+#include<Jogo.hpp>
 
 using namespace std;
 
