@@ -83,5 +83,5 @@ bool Carta::operator>(const Carta& outraCarta) const
 
 bool Carta::operator==(const Carta& outraCarta) const
 {
-	return this->valor == outraCarta.valor && this->simbolo == outraCarta.simbolo && this->naipe == outraCarta.naipe;
+	return this->simbolo == outraCarta.simbolo && this->naipe == outraCarta.naipe;
 }

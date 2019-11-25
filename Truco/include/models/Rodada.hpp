@@ -12,10 +12,10 @@ using namespace std;
 class Rodada {
 private:
 	vector<Turno> turnos;
-	Jogador jogador1;
-	Jogador jogador2;
-	int pontuacaoJogador1;
-	int pontuacaoJogador2;
+	Jogador jogador;
+	Jogador bot;
+	int pontuacaoJogador;
+	int pontuacaoBot;
 	int valorRodada;
 	bool estaFinalizada();
 	Turno* getTurnoAtual();
@@ -23,7 +23,7 @@ private:
 	void pontuarTurnoAtual();
 public:
 	Rodada();
-	Rodada(vector<Jogador> jogadores);
+	Rodada(Jogador jogador1, Jogador jogador2);
 	void fazJogada(Jogador jogador, Carta carta);
 	void finalizarTurno();
 	vector<Jogador> getVencedores();
