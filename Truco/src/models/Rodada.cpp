@@ -36,7 +36,7 @@ Turno* Rodada::getTurnoAtual()
 
 void Rodada::setPontuacao(vector<Jogador> jogadores, int pontos) {
 	for (Jogador jogador : jogadores) {
-		if (jogador == jogador) {
+		if (jogador == this->jogador) {
 			this->pontuacaoJogador += pontos;
 		}else if (jogador == bot) {
 			this->pontuacaoBot += pontos;
