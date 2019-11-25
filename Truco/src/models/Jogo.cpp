@@ -12,7 +12,7 @@ Jogo::Jogo(Jogador jogador,
 	Jogador bot) {
 	this->jogador = jogador;
 	this->bot = bot;
-	controlaJogo();
+	//controlaJogo();
 }
 
 int Jogo::getPontosJogador() {
