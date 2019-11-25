@@ -1,10 +1,8 @@
-#include "Jogador.hpp"
-#include "Carta.hpp"
-#include <iostream>
-#include <vector>
+#include <Jogador.hpp>
 
-using namespace std;
-
+Jogador::Jogador()
+{
+}
 
 Jogador::Jogador(string nome) {
 	this->nome = nome;
@@ -28,7 +26,7 @@ void Jogador::addCartaMao(Carta carta) {
 
 void Jogador::removeCartaMao(Carta carta) {
 	for (unsigned int i = 0; i < this->mao.size(); i++) {
-		if (this->mao[i].ehIgual(carta)){
+		if (this->mao[i] == carta){
 			this->mao.erase(this->mao.begin() + i);
 		}
 	}
@@ -53,4 +51,14 @@ void Jogador::limparCartasMao() {
 bool Jogador::operator <(const Jogador& outroJogador) const
 {
 	return this->nome < outroJogador.nome;
+}
+
+bool Jogador::operator>(const Jogador& outroJogador) const
+{
+	return this->nome > outroJogador.nome;
+}
+
+bool Jogador::operator==(const Jogador& outroJogador) const
+{
+	return this->nome == outroJogador.nome;
 }

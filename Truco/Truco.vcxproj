@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\exceptions;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -155,20 +155,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\exceptions\RodadaIncompleta.cpp" />
+    <ClCompile Include="src\exceptions\RodadaJaFinalizada.cpp" />
+    <ClCompile Include="src\exceptions\TurnoIncompleto.cpp" />
     <ClCompile Include="src\models\Baralho.cpp" />
     <ClCompile Include="src\models\Carta.cpp" />
     <ClCompile Include="src\models\Jogador.cpp" />
+    <ClCompile Include="src\models\Rodada.cpp" />
     <ClCompile Include="src\models\Turno.cpp" />
     <ClCompile Include="src\Truco.cpp" />
+    <ClCompile Include="test\models\TesteRodada.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Constants.hpp" />
+    <ClInclude Include="include\exceptions\RodadaIncompleta.hpp" />
+    <ClInclude Include="include\exceptions\RodadaJaFinalizada.hpp" />
+    <ClInclude Include="include\exceptions\TurnoIncompleto.hpp" />
     <ClInclude Include="include\models\Carta.hpp" />
     <ClInclude Include="include\models\Baralho.hpp" />
     <ClInclude Include="include\models\Jogador.hpp" />
+    <ClInclude Include="include\models\Rodada.hpp" />
     <ClInclude Include="include\models\Turno.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

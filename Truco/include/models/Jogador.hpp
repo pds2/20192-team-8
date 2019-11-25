@@ -1,8 +1,7 @@
 #ifndef JOGADOR_H
 #define JOGADOR_H
 
-#include <iostream>
-#include "Carta.hpp"
+#include <Carta.hpp>
 #include <vector>
 #include<string>
 
@@ -14,6 +13,7 @@ private:
 protected:
 	vector<Carta> mao;
 public:
+	Jogador();
 	Jogador(string nome);
 	Jogador(string nome, vector<Carta> cartas);
 	string  getNome();
@@ -25,6 +25,8 @@ public:
 	int getNumeroCartas();
 	void limparCartasMao();
 	bool operator <(const Jogador& outroJogador) const;
+	bool operator >(const Jogador& outroJogador) const;
+	bool operator ==(const Jogador& outroJogador) const;
 };
 
 #endif

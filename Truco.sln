@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Truco", "Truco\Truco.vcxproj", "{6E7B6044-F5D3-4454-B3D1-C1FB9DE174EA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "googletest", "gtest\gtest.vcxproj", "{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{6E7B6044-F5D3-4454-B3D1-C1FB9DE174EA}.Release|x64.Build.0 = Release|x64
 		{6E7B6044-F5D3-4454-B3D1-C1FB9DE174EA}.Release|x86.ActiveCfg = Release|Win32
 		{6E7B6044-F5D3-4454-B3D1-C1FB9DE174EA}.Release|x86.Build.0 = Release|Win32
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Debug|x64.ActiveCfg = Debug|x64
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Debug|x64.Build.0 = Debug|x64
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Debug|x86.ActiveCfg = Debug|Win32
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Debug|x86.Build.0 = Debug|Win32
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Release|x64.ActiveCfg = Release|x64
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Release|x64.Build.0 = Release|x64
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Release|x86.ActiveCfg = Release|Win32
+		{107B11E6-12E1-4A34-B22C-EA4EB0E38BFD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
