@@ -1,5 +1,4 @@
-#include "Baralho.hpp"
-#include <time.h>
+#include <Baralho.hpp>
 
 Baralho::Baralho()
 {
@@ -21,10 +20,10 @@ void Baralho::resetarBaralho()
 Carta Baralho::compraCarta()
 {
 	srand(time(NULL));
-	int randomIndex = rand() % this->cartas.size();
+	int indiceAleatorio = rand() % this->cartas.size();
 	
-	Carta carta = this->cartas[randomIndex];
-	this->cartas.erase(cartas.begin() + randomIndex);
+	Carta carta = this->cartas[indiceAleatorio];
+	this->cartas.erase(cartas.begin() + indiceAleatorio);
 
 	return carta;
 }

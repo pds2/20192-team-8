@@ -4,6 +4,7 @@
 #include <vector>
 #include <Carta.hpp>
 #include <Constants.hpp>
+#include <time.h>
 
 using namespace std;
 

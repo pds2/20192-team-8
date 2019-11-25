@@ -2,10 +2,11 @@
 //
 
 #include <iostream>
-#include "Carta.hpp"
-#include "Baralho.hpp"
-#include "Jogador.hpp"
-#include "Turno.hpp"
+#include <Baralho.hpp>
+#include <Carta.hpp>
+#include <Jogador.hpp>
+#include <Rodada.hpp>
+#include <Turno.hpp>
 
 using namespace std;
 

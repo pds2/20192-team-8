@@ -1,8 +1,11 @@
 #include <Turno.hpp>
 
-using namespace std;
-
 Turno::Turno() {
+	this->numeroJogadores = 2;
+}
+
+Turno::Turno(int numeroJogadores) {
+	this->numeroJogadores = numeroJogadores;
 }
 
 void Turno::registrarJogada(Jogador jogador, Carta carta)
@@ -12,19 +15,23 @@ void Turno::registrarJogada(Jogador jogador, Carta carta)
 
 vector<Jogador> Turno::getVencedores()
 {
+	if (this->jogadas.size() < this->numeroJogadores) {
+		throw TurnoIncompleto();
+	}
+
 	vector<Jogador> vencedores;
-	int maiorValorCarta = 0;
+	Carta maiorCarta;
 
 	for (auto const& jogada : this->jogadas) {
 		Jogador jogador = jogada.first;
 		Carta carta = jogada.second;
 
-		if (carta.getValor() > maiorValorCarta) {
-			maiorValorCarta = carta.getValor();
+		if (carta > maiorCarta) {
+			maiorCarta = carta;
 			vencedores.clear();
 			vencedores.push_back(jogador);
 		}
-		else if (carta.getValor() == maiorValorCarta) {
+		else if (carta == maiorCarta) {
 			vencedores.push_back(jogador);
 		}
 	}

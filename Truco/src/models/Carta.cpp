@@ -1,5 +1,4 @@
-#include "Carta.hpp"
-using namespace std;
+#include <Carta.hpp>
 
 Carta::Carta() {
 	inicializaMaps();
@@ -72,6 +71,17 @@ void Carta::setSimbolo(char simbolo) {
 	this->simbolo = simbolo;
 }
 
-bool Carta::ehIgual(Carta carta) {
-	return (this->getSimbolo() == carta.getSimbolo() && this->getNaipe() == carta.getNaipe());
+bool Carta::operator<(const Carta& outraCarta) const
+{
+	return this->valor < outraCarta.valor;
+}
+
+bool Carta::operator>(const Carta& outraCarta) const
+{
+	return this->valor > outraCarta.valor;
+}
+
+bool Carta::operator==(const Carta& outraCarta) const
+{
+	return this->valor == outraCarta.valor && this->simbolo == outraCarta.simbolo && this->naipe == outraCarta.naipe;
 }

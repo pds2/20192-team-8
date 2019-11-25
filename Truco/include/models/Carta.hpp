@@ -29,8 +29,9 @@ public:
 	void setManilha(bool manilha);
 	char getSimbolo();
 	void setSimbolo(char simbolo);
-	bool ehIgual(Carta carta);
-
+	bool operator<(const Carta& outraCarta) const;
+	bool operator>(const Carta& outraCarta) const;
+	bool operator==(const Carta& outraCarta) const;
 };
 
 #endif
