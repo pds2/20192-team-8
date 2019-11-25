@@ -17,15 +17,16 @@ private:
 	int pontos_jogador = 0;
 	int pontos_bot = 0;
 
-	std::list<Rodada> rodadas;
+	list<Rodada> rodadas;
 	Jogador jogador;
 	Jogador bot;
 	
 public:
-	
+	Jogo();
 	Jogo(Jogador jogador,
-	Jogador jogador);
-	void controlaJogo();
+	Jogador bot);
+	int getPontosJogador();
+	int getPontosBot();
 };
 
 #endif

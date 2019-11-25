@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 Jogo::Jogo(Jogador jogador,
 	Jogador bot) {
 	this->jogador = jogador;
@@ -14,29 +15,9 @@ Jogo::Jogo(Jogador jogador,
 	controlaJogo();
 }
 
-void Jogo::controlaJogo() {
-
-	int nRodada = 1;
-
-	cout << "Partida Iniciada";
-
-	while (this->pontos_jogador < PONTOS_MAXIMOS && this->pontos_bot < PONTOS_MAXIMOS) {
-		cout << "\n" << "--------------------------------------------------";
-		cout << "\n" << "Rodada: " << nRodada;
-		cout << "\n" << "Pontos do Jogador: " << this->pontos_jogador;
-		cout << "\n" << "Pontos Bot: " << this->pontos_bot;
-		Rodada rodada =  Rodada(jogador,bot);
-		this->rodadas.push_back(rodada);
-		cout << "\n" << "Fim da rodada " << nRodada << "!";
-		cout << "\n" << "--------------------------------------------------";
-		nRodada++;
-	}
-
-	if (this->pontos_jogadorHumano >= PONTOS_MAXIMOS) {
-		cout << "\n" << "O Jogador foi o vencedor !!!" << endl;
-	}
-	else {
-		cout << "\n" << "O Bot foi o vencedor !!!" << endl;
-	}
+int Jogo::getPontosJogador() {
+	return this->pontos_jogador;
 }
-
+int Jogo::getPontosBot() {
+	return this->pontos_bot;
+}
