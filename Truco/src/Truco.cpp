@@ -13,7 +13,6 @@ using namespace std;
 
 int main()
 {
-	Jogo jogo;
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
