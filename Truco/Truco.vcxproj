@@ -164,7 +164,6 @@
     <ClCompile Include="src\models\Rodada.cpp" />
     <ClCompile Include="src\models\Turno.cpp" />
     <ClCompile Include="src\Truco.cpp" />
-    <ClCompile Include="test\models\TesteRodada.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Constants.hpp" />

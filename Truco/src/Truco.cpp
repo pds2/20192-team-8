@@ -2,41 +2,16 @@
 //
 
 #include <iostream>
-#include <Carta.hpp>
 #include <Baralho.hpp>
+#include <Carta.hpp>
 #include <Jogador.hpp>
-#include <Turno.hpp>
 #include <Rodada.hpp>
+#include <Turno.hpp>
 
 using namespace std;
 
 int main()
 {
-	Jogador gabriel = Jogador("Gabriel");
-	Jogador jamal = Jogador("Jamal");
-
-	vector<Jogador> jogadores = { gabriel, jamal };
-	Rodada rodada = Rodada(jogadores);
-
-	rodada.fazJogada(gabriel, Carta(COPAS, '2'));
-	rodada.fazJogada(jamal, Carta(COPAS, 'J'));
-	rodada.finalizarTurno();
-
-	rodada.fazJogada(gabriel, Carta(COPAS, 'K'));
-	rodada.fazJogada(jamal, Carta(COPAS, 'J'));
-	rodada.finalizarTurno();
-
-	rodada.fazJogada(gabriel, Carta(COPAS, 'Q'));
-	rodada.fazJogada(jamal, Carta(COPAS, 'Q'));
-	rodada.finalizarTurno();
-
-	try {
-		vector<Jogador> vencedores = rodada.getVencedores();
-		return 0;
-	}
-	catch (const RodadaIncompleta& e) {
-		cout << e.what();
-	}
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração

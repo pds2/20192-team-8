@@ -1,5 +1,5 @@
-#ifndef TURNO_INCOMPLETA_H
-#define TURNO_INCOMPLETA_H
+#ifndef TURNO_INCOMPLETO_H
+#define TURNO_INCOMPLETO_H
 
 #include <stdexcept>
 
