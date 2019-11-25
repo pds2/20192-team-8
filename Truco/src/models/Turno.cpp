@@ -31,7 +31,7 @@ vector<Jogador> Turno::getVencedores()
 			vencedores.clear();
 			vencedores.push_back(jogador);
 		}
-		else if (carta == maiorCarta) {
+		else if (carta.getValor() == maiorCarta.getValor()) {
 			vencedores.push_back(jogador);
 		}
 	}

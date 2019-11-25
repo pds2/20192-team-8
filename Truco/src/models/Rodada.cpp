@@ -4,25 +4,25 @@ Rodada::Rodada()
 {
 	this->valorRodada = 2;
 	this->turnos.push_back(Turno());
-	this->pontuacaoJogador1 = 0;
-	this->pontuacaoJogador2 = 0;
+	this->pontuacaoJogador = 0;
+	this->pontuacaoBot = 0;
 }
 
-Rodada::Rodada(vector<Jogador> jogadores)
+Rodada::Rodada(Jogador jogador, Jogador bot)
 {
 	this->valorRodada = 2;
 
-	this->jogador1 = jogadores[0];
-	this->jogador2 = jogadores[1];
+	this->jogador = jogador;
+	this->bot = bot;
 	
-	this->pontuacaoJogador1 = 0;
-	this->pontuacaoJogador2 = 0;
+	this->pontuacaoJogador = 0;
+	this->pontuacaoBot = 0;
 
 	this->turnos.push_back(Turno());
 }
 
 bool Rodada::estaFinalizada() {
-	if (pontuacaoJogador1 >= 3 || pontuacaoJogador2 >= 3) {
+	if (pontuacaoJogador >= 3 || pontuacaoBot >= 3) {
 		return true;
 	}
 	return false;
@@ -36,10 +36,10 @@ Turno* Rodada::getTurnoAtual()
 
 void Rodada::setPontuacao(vector<Jogador> jogadores, int pontos) {
 	for (Jogador jogador : jogadores) {
-		if (jogador == jogador1) {
-			this->pontuacaoJogador1 += pontos;
-		}else if (jogador == jogador2) {
-			this->pontuacaoJogador2 += pontos;
+		if (jogador == this->jogador) {
+			this->pontuacaoJogador += pontos;
+		}else if (jogador == bot) {
+			this->pontuacaoBot += pontos;
 		}
 	}
 }
@@ -82,12 +82,12 @@ vector<Jogador> Rodada::getVencedores()
 
 	vector<Jogador> vencedores;
 
-	if (pontuacaoJogador1 >= pontuacaoJogador2) {
-		vencedores.push_back(jogador1);
+	if (pontuacaoJogador >= pontuacaoBot) {
+		vencedores.push_back(jogador);
 	}
 	
-	if (pontuacaoJogador1 <= pontuacaoJogador2) {
-		vencedores.push_back(jogador2);
+	if (pontuacaoJogador <= pontuacaoBot) {
+		vencedores.push_back(bot);
 	}
 
 	return vencedores;
