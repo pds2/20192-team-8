@@ -8,8 +8,12 @@ using namespace std;
 class TurnoIncompleto : public runtime_error
 {
 public:
-	TurnoIncompleto();
-	TurnoIncompleto(string mensagem);
+	  /**
+	   * @brief Exceção para quando o turno esta incompleto
+	   *
+	   */
+	  TurnoIncompleto();
+	  TurnoIncompleto(string mensagem);
 };
 
 #endif
