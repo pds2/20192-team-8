@@ -6,6 +6,12 @@ GerenciadorTurnos::GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* 
 	this->jogador = jogador;
 	this->bot = bot;
 	this->baralho = baralho;
+	nomeAumentoValor = {
+		{2, "truco"},
+		{4, "seis"},
+		{6, "nove"},
+		{9, "doze"},
+	};
 }
 
 void GerenciadorTurnos::imprimirCartasDoJogador() {
@@ -18,20 +24,113 @@ void GerenciadorTurnos::imprimirCartasDoJogador() {
 	}
 }
 
-void GerenciadorTurnos::aumentarValorRodada() {
-	imprimirTruco();
-	srand(time(NULL));
+void GerenciadorTurnos::aguardarRespostaTrucoJogador(){
+	limpaConsole();
+	char opcaoJogador;
 
-	if ((rand() % 1) == 0) {
-		limpaConsole();
+	cout << "Digite S para aceitar, F para fugir ou T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor());
+	cin >> opcaoJogador;
+
+	if(opcaoJogador == 'S' || opcaoJogador == 's'){
+		return;
+	} else if(opcaoJogador == 'F' || opcaoJogador == 'f'){
 		//TODO implementar desistencia
-		imprimirPausadamente("A maquina recusou seu truco.");
+		return;
+	} else if(opcaoJogador == 'T' || opcaoJogador == 't'){
+		this->aumentarValorRodada(*this->jogador);
+		return;
 	}
 }
 
-Carta GerenciadorTurnos::fazerJogada() {
-	int indiceCarta;
+void GerenciadorTurnos::aguardarRespostaTrucoBot(){
+	srand(time(NULL));
+
+	int respostaBot = this->rodada->getValor() == 12 ? rand() % 2 : rand() % 3;
+	limpaConsole();
+
+	switch(respostaBot){
+		case 0:
+			//TODO implementar desistencia
+			imprimirPausadamente("A maquina recusou seu truco.");
+			this_thread::sleep_for(chrono::milliseconds(1000));
+			break;
+		case 1:
+			imprimirPausadamente("A maquina aceitou seu truco.");
+			this_thread::sleep_for(chrono::milliseconds(1000));
+			break;
+		case 2:
+			this->aumentarValorRodada(*this->bot);
+			break;
+	}
+}
+
+void GerenciadorTurnos::aumentarValorRodada(Jogador jogadorTrucou) {
+	switch(this->rodada->getValor()){
+		case 2:
+			imprimirTruco();
+			break;
+		case 4:
+			imprimirSeis();
+			break;
+		case 6:
+			imprimirNove();
+			break;
+		case 9:
+			imprimirDoze();
+			break;
+	}
+
+	this->rodada->aumentarValor(*this->jogador);
+	
+	if(jogadorTrucou == *this->jogador){
+		this->aguardarRespostaTrucoBot();
+	}else {
+		this->aguardarRespostaTrucoJogador();
+	}
+}
+
+Carta GerenciadorTurnos::aguardaJogadaUsuario()
+{
+	char confirmacao = '\0';
 	char aux;
+	int indiceCarta;
+	Carta cartaJogada = Carta();
+
+	vector<Carta> cartasJogador = this->jogador->getMao();
+
+	string comandoAumentoValor = " ou pressione T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor());
+	string comandoJogada = "\nDigite a carta que voce quer jogar";
+
+	if(this->rodada->getJogadorTrucou() != *this->jogador){
+		comandoJogada += comandoAumentoValor;
+	}
+
+	imprimirPausadamente(comandoJogada + ": ");
+
+	if (cin >> aux) {
+		if (aux == 't' || aux == 'T') {
+			this->aumentarValorRodada(*this->jogador);
+		}
+		else {
+			indiceCarta = (int)aux - 48;
+			if (indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
+				cartaJogada = cartasJogador.at(indiceCarta - 1);
+
+				limpaConsole();
+				imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar: ");
+				cin >> confirmacao;
+			}
+		}
+	}
+	else {
+		cin.clear();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+
+	return cartaJogada;
+}
+
+Carta GerenciadorTurnos::fazerJogada() {
 	Carta cartaJogada;
 	char confirmacao = '\0';
 
@@ -46,27 +145,8 @@ Carta GerenciadorTurnos::fazerJogada() {
 
 		this->imprimirCartasDoJogador();
 
-		imprimirPausadamente("\nDigite a carta que voce quer jogar ou pressione T para aumentar a aposta: ");
-
-		if (cin >> aux) {
-			if (aux == 't' || aux == 'T') {
-				this->aumentarValorRodada();
-			}
-			else {
-				indiceCarta = (int)aux - 48;
-				if (indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
-					cartaJogada = cartasJogador.at(indiceCarta - 1);
-
-					limpaConsole();
-					imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar: ");
-					cin >> confirmacao;
-				}
-			}
-		}
-		else {
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
+		cartaJogada = this->aguardaJogadaUsuario();
+		
 	} while (confirmacao != 'S' && confirmacao != 's');
 
 	this->jogador->removeCartaMao(cartaJogada);

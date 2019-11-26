@@ -22,7 +22,7 @@ Rodada::Rodada(Jogador jogador, Jogador bot)
 }
 
 bool Rodada::estaFinalizada() {
-	if (pontuacaoJogador >= 3 || pontuacaoBot >= 3 && pontuacaoJogador != pontuacaoBot) {
+	if (pontuacaoJogador >= 3 || (pontuacaoBot >= 3 && pontuacaoJogador != pontuacaoBot)) {
 		return true;
 	}
 	return false;
@@ -74,9 +74,10 @@ void Rodada::finalizarTurno()
 	this->turnos.push_back(Turno());
 }
 
-void Rodada::aumentarValor()
+void Rodada::aumentarValor(Jogador jogadorTrucou)
 {
 	this->valorRodada = mapProximoValor.at(this->valorRodada);
+	this->jogadorTrucou = jogadorTrucou;
 }
 
 vector<Jogador> Rodada::getVencedores()
@@ -96,6 +97,14 @@ vector<Jogador> Rodada::getVencedores()
 	}
 
 	return vencedores;
+}
+
+int Rodada::getValor(){
+	return this->valorRodada;
+}
+
+Jogador Rodada::getJogadorTrucou(){
+	return this->jogadorTrucou;
 }
 
 vector<Jogador> Rodada::getVencedoresTurnoAtual()
