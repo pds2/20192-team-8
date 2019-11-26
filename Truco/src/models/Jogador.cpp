@@ -2,10 +2,12 @@
 
 Jogador::Jogador()
 {
+	this->ehBot = false;
 }
 
-Jogador::Jogador(string nome) {
+Jogador::Jogador(string nome, bool ehBot) {
 	this->nome = nome;
+	this->ehBot = ehBot;
 }
 
 Jogador::Jogador(string nome, vector<Carta> cartas, bool ehBot) {

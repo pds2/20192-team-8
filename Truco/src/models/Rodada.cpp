@@ -22,7 +22,7 @@ Rodada::Rodada(Jogador jogador, Jogador bot)
 }
 
 bool Rodada::estaFinalizada() {
-	if (pontuacaoJogador >= 3 || pontuacaoBot >= 3) {
+	if (pontuacaoJogador >= 3 || pontuacaoBot >= 3 && pontuacaoJogador != pontuacaoBot) {
 		return true;
 	}
 	return false;
@@ -38,7 +38,7 @@ void Rodada::setPontuacao(vector<Jogador> jogadores, int pontos) {
 	for (Jogador jogador : jogadores) {
 		if (jogador == this->jogador) {
 			this->pontuacaoJogador += pontos;
-		}else if (jogador == bot) {
+		}else if (jogador == this->bot) {
 			this->pontuacaoBot += pontos;
 		}
 	}
@@ -72,6 +72,11 @@ void Rodada::finalizarTurno()
 	}
 
 	this->turnos.push_back(Turno());
+}
+
+void Rodada::aumentarValor()
+{
+	this->valorRodada = mapProximoValor.at(this->valorRodada);
 }
 
 vector<Jogador> Rodada::getVencedores()

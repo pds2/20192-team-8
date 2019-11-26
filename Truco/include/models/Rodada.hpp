@@ -16,6 +16,7 @@ private:
 	 * @brief vector de turnos da Rodada
 	 */
 	vector<Turno> turnos;
+	
 	/**
 	 * @brief Jogador da Rodada
 	 */
@@ -69,10 +70,10 @@ public:
 	Rodada();
 	/**
 	 * @brief Construtor da classe rodada
-	 * @param jogador1 
-	 * @param jogador2
+	 * @param jogador
+	 * @param bot
 	 */
-	Rodada(Jogador jogador1, Jogador jogador2);
+	Rodada(Jogador jogador, Jogador bot);
 
 	/**
 	 * @brief Função que verifica o fim da rodada
@@ -93,11 +94,24 @@ public:
 	void finalizarTurno();
 
 	/**
+	 * @brief Aumenta o valor da Rodada
+	 */
+	void aumentarValor();
+
+	/**
 	 * @brief Retorna o(s) vencedor(es) do turno
 	 * @return vector<Jogador> - vencedores do turno
 	 */
 	vector<Jogador> getVencedores();
 	vector<Jogador> getVencedoresTurnoAtual();
+};
+
+const map<char, char> mapProximoValor = {
+	{2, 4},
+	{4, 6},
+	{6, 8},
+	{8, 10},
+	{10, 12},
 };
 
 #endif

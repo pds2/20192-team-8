@@ -155,14 +155,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\services\GerenciadorRodadas.hpp" />
     <ClCompile Include="src\exceptions\RodadaIncompleta.cpp" />
     <ClCompile Include="src\exceptions\RodadaJaFinalizada.cpp" />
     <ClCompile Include="src\exceptions\TurnoIncompleto.cpp" />
     <ClCompile Include="src\models\Baralho.cpp" />
     <ClCompile Include="src\models\Carta.cpp" />
     <ClCompile Include="src\models\Jogador.cpp" />
+    <ClCompile Include="src\models\Jogo.cpp" />
     <ClCompile Include="src\models\Rodada.cpp" />
     <ClCompile Include="src\models\Turno.cpp" />
+    <ClCompile Include="src\services\GerenciadorRodadas.cpp" />
     <ClCompile Include="src\services\GerenciadorTurnos.cpp" />
     <ClCompile Include="src\Truco.cpp" />
     <ClCompile Include="src\utils\AuxiliaresConsole.cpp" />
@@ -175,6 +178,7 @@
     <ClInclude Include="include\models\Carta.hpp" />
     <ClInclude Include="include\models\Baralho.hpp" />
     <ClInclude Include="include\models\Jogador.hpp" />
+    <ClInclude Include="include\models\Jogo.hpp" />
     <ClInclude Include="include\models\Rodada.hpp" />
     <ClInclude Include="include\models\Turno.hpp" />
     <ClInclude Include="include\services\GerenciadorTurnos.hpp" />

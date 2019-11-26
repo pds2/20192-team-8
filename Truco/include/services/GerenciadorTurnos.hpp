@@ -21,14 +21,14 @@ private:
 	Jogador* bot;
 	Baralho baralho;
 	void imprimirCartasDoJogador();
-	void distribuirCartas();
+	void aumentarValorRodada();
 	Carta fazerJogada();
 	Carta fazerJogadaBot();
 	void imprimirJogadas(Carta cartaJogador, Carta cartaBot);
 	void imprimirVencedor();
 public:
-	GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot);
-	Jogador executarTurno();
+	GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot, Baralho baralho);
+	void executarTurno();
 };
 
 #endif

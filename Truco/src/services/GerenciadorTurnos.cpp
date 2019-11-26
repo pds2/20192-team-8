@@ -1,26 +1,11 @@
 #include <GerenciadorTurnos.hpp>
 
-GerenciadorTurnos::GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot)
+GerenciadorTurnos::GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot, Baralho baralho)
 {
 	this->rodada = rodada;
 	this->jogador = jogador;
 	this->bot = bot;
-	this->baralho = Baralho();
-}
-
-void GerenciadorTurnos::distribuirCartas() {
-	imprimirCarregamentoComIcone("Embaralhando... ");
-
-	this->jogador->limparCartasMao();
-	this->bot->limparCartasMao();
-
-	this->baralho.defineManilhas();
-
-	vector<Carta> cartasJogador = this->baralho.compraCartas(3);
-	vector<Carta> cartasBot = this->baralho.compraCartas(3);
-
-	this->jogador->setMao(cartasJogador);
-	this->bot->setMao(cartasBot);
+	this->baralho = baralho;
 }
 
 void GerenciadorTurnos::imprimirCartasDoJogador() {
@@ -33,8 +18,20 @@ void GerenciadorTurnos::imprimirCartasDoJogador() {
 	}
 }
 
+void GerenciadorTurnos::aumentarValorRodada() {
+	imprimirTruco();
+	srand(time(NULL));
+
+	if ((rand() % 1) == 0) {
+		limpaConsole();
+		//TODO implementar desistencia
+		imprimirPausadamente("A maquina recusou seu truco.");
+	}
+}
+
 Carta GerenciadorTurnos::fazerJogada() {
 	int indiceCarta;
+	char aux;
 	Carta cartaJogada;
 	char confirmacao = '\0';
 
@@ -49,14 +46,22 @@ Carta GerenciadorTurnos::fazerJogada() {
 
 		this->imprimirCartasDoJogador();
 
-		imprimirPausadamente("\nDigite a carta que voce quer jogar: ");
+		imprimirPausadamente("\nDigite a carta que voce quer jogar ou pressione T para aumentar a aposta: ");
 
-		if (cin >> indiceCarta && indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
-			cartaJogada = cartasJogador.at(indiceCarta - 1);
+		if (cin >> aux) {
+			if (aux == 't' || aux == 'T') {
+				this->aumentarValorRodada();
+			}
+			else {
+				indiceCarta = (int)aux - 48;
+				if (indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
+					cartaJogada = cartasJogador.at(indiceCarta - 1);
 
-			limpaConsole();
-			imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar: ");
-			cin >> confirmacao;
+					limpaConsole();
+					imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar: ");
+					cin >> confirmacao;
+				}
+			}
 		}
 		else {
 			cin.clear();
@@ -117,10 +122,8 @@ void GerenciadorTurnos::imprimirVencedor() {
 	}
 }
 
-Jogador GerenciadorTurnos::executarTurno()
+void GerenciadorTurnos::executarTurno()
 {
-	this->distribuirCartas();
-
 	Carta cartaJogada = this->fazerJogada();
 
 	Carta cartaJogadaBot = this->fazerJogadaBot();
@@ -132,6 +135,4 @@ Jogador GerenciadorTurnos::executarTurno()
 	this->imprimirVencedor();
 
 	aguardarTecla();
-
-	return *this->jogador;
 }

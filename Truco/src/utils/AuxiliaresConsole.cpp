@@ -75,4 +75,72 @@ namespace auxiliaresConsole {
 				cin.ignore();
 		#endif
 	}
+
+	void imprimirTruco(int velocidade) {
+		limpaConsole();
+		for (int i = 0; i < 5; i++) {
+			cout << ".___________..______       __    __      ______   ______  " << endl;
+			cout << "|           ||   _  \\     |  |  |  | /      | /  __  \\ " << endl;
+			cout << "`---|  |----`|  |_)  |    |  |  |  ||  ,----'|  |  |  |" << endl;
+			cout << "    |  |     |      /     |  |  |  ||  |     |  |  |  |" << endl;
+			cout << "    |  |     |  |\\  \\----.|  `--'  ||  `----.|  `--'  |" << endl;
+			cout << "    |__|     | _| `._____| \\______/  \\______| \\______/ " << endl;
+			cout << "" << endl;
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+			limpaConsole();
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+
+		}
+	}
+
+	void imprimirSeis(int velocidade) {
+		limpaConsole();
+		for (int i = 0; i < 5; i++) {
+			cout << "     _______. _______  __      _______." << endl;
+			cout << "    /       ||   ____||  |    /       |" << endl;
+			cout << "   |   (----`|  |__   |  |   |   (----`" << endl;
+			cout << "    \\   \\    |   __|  |  |    \\   \\    " << endl;
+			cout << ".----)   |   |  |____ |  |.----)   |   " << endl;
+			cout << "|_______/    |_______||__||_______/    " << endl;
+			cout << "" << endl;
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+			limpaConsole();
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+
+		}
+	}
+
+	void imprimirNove(int velocidade) {
+		limpaConsole();
+		for (int i = 0; i < 5; i++) {
+			cout << ".__   __.  ______  ____    ____ _______ " << endl;
+			cout << "|  \\ |  | /  __  \\ \\   \\  /   /|   ____|" << endl;
+			cout << "|   \\|  ||  |  |  | \\   \\/   / |  |__   " << endl;
+			cout << "|  . `  ||  |  |  |  \\      /  |   __|  " << endl;
+			cout << "|  |\\   ||  `--'  |   \\    /   |  |____ " << endl;
+			cout << "|__| \\__| \\______/     \\__/    |_______|" << endl;
+			cout << "" << endl;
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+			limpaConsole();
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+
+		}
+	}
+
+	void imprimirDoze(int velocidade) {
+		limpaConsole();
+		for (int i = 0; i < 5; i++) {
+			cout << " _______    ______   ________   _______ " << endl;
+			cout << "|       \\  /  __  \\ |       /  |   ____|" << endl;
+			cout << "|  .--.  ||  |  |  |`---/  /   |  |__   " << endl;
+			cout << "|  |  |  ||  |  |  |   /  /    |   __|  " << endl;
+			cout << "|  '--'  ||  `--'  |  /  /----.|  |____ " << endl;
+			cout << "|_______/  \\______/  /________||_______|" << endl;
+			cout << "" << endl;
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+			limpaConsole();
+			this_thread::sleep_for(chrono::milliseconds(velocidade));
+
+		}
+	}
 }

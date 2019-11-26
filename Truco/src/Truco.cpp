@@ -8,17 +8,18 @@
 #include <Rodada.hpp>
 #include <Turno.hpp>
 #include <GerenciadorTurnos.hpp>
+#include <GerenciadorRodadas.hpp>
 
 using namespace std;
 
 int main()
 {
-	Rodada rodada = Rodada();
 	Jogador jogador = Jogador("Jogador");
-	Jogador bot = Jogador("Bot");
+	Jogador bot = Jogador("Bot", true);
+	Rodada rodada = Rodada(jogador, bot);
 
-	GerenciadorTurnos g = GerenciadorTurnos(&rodada, &jogador, &bot);
-	g.executarTurno();
+	GerenciadorRodadas g = GerenciadorRodadas(&rodada, &jogador, &bot);
+	g.executarRodada();
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração

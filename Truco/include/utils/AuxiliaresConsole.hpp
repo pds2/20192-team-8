@@ -21,6 +21,14 @@ namespace auxiliaresConsole {
 	void imprimirCarregamentoVertical(int velocidade = 700);
 
 	void aguardarTecla();
+
+	void imprimirTruco(int velocidade = 400);
+
+	void imprimirSeis(int velocidade = 400);
+
+	void imprimirNove(int velocidade = 400);
+
+	void imprimirDoze(int velocidade = 400);
 }
 
 #endif

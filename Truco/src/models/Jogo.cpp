@@ -1,23 +1,29 @@
 #include "Jogo.hpp"
-#include "Rodada.hpp" 
-#include "Jogador.hpp"
-#include "Baralho.hpp"
-#include <list>
-#include <iostream>
 
 using namespace std;
 
+Jogo::Jogo() {
+	this->jogador = Jogador();
+	this->bot = Jogador();
+}
 
-Jogo::Jogo(Jogador jogador,
-	Jogador bot) {
+Jogo::Jogo(Jogador jogador, Jogador bot) {
 	this->jogador = jogador;
 	this->bot = bot;
-	//controlaJogo();
 }
 
 int Jogo::getPontosJogador() {
-	return this->pontos_jogador;
+	return this->pontosJogador;
 }
 int Jogo::getPontosBot() {
-	return this->pontos_bot;
+	return this->pontosBot;
+}
+
+void Jogo::acrescentaPontosJogador(int pontos)
+{
+	this->pontosJogador += pontos;
+}
+
+Rodada* Jogo::getRodadaAtual() {
+	return &(*(this->rodadas.end() - 1));
 }
