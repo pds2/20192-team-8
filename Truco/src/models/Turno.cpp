@@ -15,7 +15,7 @@ void Turno::registrarJogada(Jogador jogador, Carta carta)
 
 vector<Jogador> Turno::getVencedores()
 {
-	if (this->jogadas.size() < this->numeroJogadores) {
+	if ((int)this->jogadas.size() < this->numeroJogadores) {
 		throw TurnoIncompleto();
 	}
 

@@ -27,7 +27,7 @@ void GerenciadorTurnos::imprimirCartasDoJogador() {
 	imprimirPausadamente("Suas cartas sao: \n");
 
 	vector<Carta> cartasJogador = this->jogador->getMao();
-	for (size_t i = 0; i < cartasJogador.size(); i++) {
+	for (int i = 0; i < (int)cartasJogador.size(); i++) {
 		Carta carta = cartasJogador[i];
 		imprimirPausadamente(to_string(i + 1) + ":\t" + string(carta) + "\n");
 	}
@@ -51,7 +51,7 @@ Carta GerenciadorTurnos::fazerJogada() {
 
 		imprimirPausadamente("\nDigite a carta que voce quer jogar: ");
 
-		if (cin >> indiceCarta && indiceCarta > 0 && indiceCarta <= cartasJogador.size()) {
+		if (cin >> indiceCarta && indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
 			cartaJogada = cartasJogador.at(indiceCarta - 1);
 
 			limpaConsole();
@@ -88,7 +88,12 @@ Carta GerenciadorTurnos::fazerJogadaBot() {
 }
 
 void GerenciadorTurnos::imprimirJogadas(Carta cartaJogador, Carta cartaBot) {
+	Carta cartaVira = this->baralho.getCartaVira();
+	
 	limpaConsole();
+
+	imprimirPausadamente("A carta vira eh: " + string(cartaVira) + "\n\n\n");
+
 	imprimirPausadamente("Voce jogou um " + string(cartaJogador) + "\n\n\n");
 
 	this_thread::sleep_for(chrono::milliseconds(500));

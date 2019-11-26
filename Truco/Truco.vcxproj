@@ -165,6 +165,7 @@
     <ClCompile Include="src\models\Turno.cpp" />
     <ClCompile Include="src\services\GerenciadorTurnos.cpp" />
     <ClCompile Include="src\Truco.cpp" />
+    <ClCompile Include="src\utils\AuxiliaresConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Constants.hpp" />
