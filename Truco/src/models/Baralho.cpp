@@ -41,13 +41,17 @@ vector<Carta> Baralho::compraCartas(int qtd)
 
 void Baralho::defineManilhas()
 {
-	Carta cartaVira = this->compraCarta();
-	this->simboloManilha = mapProximaCarta.find(cartaVira.getSimbolo())->second;
+	this->cartaVira = this->compraCarta();
+	this->simboloManilha = mapProximaCarta.find(this->cartaVira.getSimbolo())->second;
 
 	for (int i = 0; i < this->cartas.size(); i++) {
 		bool ehManilha = this->cartas[i].getSimbolo() == this->simboloManilha;
 		this->cartas[i].setManilha(ehManilha);
 	}
+}
+
+Carta Baralho::getCartaVira() {
+	return this->cartaVira;
 }
 
 char Baralho::getSimboloManilha() {

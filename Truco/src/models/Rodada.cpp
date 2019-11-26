@@ -92,3 +92,8 @@ vector<Jogador> Rodada::getVencedores()
 
 	return vencedores;
 }
+
+vector<Jogador> Rodada::getVencedoresTurnoAtual()
+{
+	return this->getTurnoAtual()->getVencedores();
+}

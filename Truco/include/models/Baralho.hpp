@@ -11,6 +11,7 @@ using namespace std;
 class Baralho {
 private:
 	vector <Carta> cartas;
+	Carta cartaVira;
 	char simboloManilha;
 public:
 	Baralho();
@@ -18,6 +19,7 @@ public:
 	Carta compraCarta();
 	vector<Carta> compraCartas(int qtd);
 	void defineManilhas();
+	Carta getCartaVira();
 	char getSimboloManilha();
 	vector<Carta> getCartas();
 };

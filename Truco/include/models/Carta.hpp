@@ -32,6 +32,7 @@ public:
 	bool operator<(const Carta& outraCarta) const;
 	bool operator>(const Carta& outraCarta) const;
 	bool operator==(const Carta& outraCarta) const;
+	operator std::string() const;
 };
 
 #endif

@@ -1,8 +1,10 @@
+
 #ifndef JOGADOR_H
 #define JOGADOR_H
 
 #include <Carta.hpp>
 #include <vector>
+#include <algorithm>
 #include<string>
 
 using namespace std;
@@ -10,21 +12,19 @@ using namespace std;
 class Jogador {
 private:
 	string nome;
-	bool ehBot;
 protected:
 	vector<Carta> mao;
 public:
 	Jogador();
 	Jogador(string nome);
-	Jogador(string nome, vector<Carta> cartas,bool ehBot);
-	void setEhBot(bool ehBot);
-	bool getEhBot();
+	Jogador(string nome, vector<Carta> cartas);
 	string  getNome();
 	void setNome(string nome);
 	void addCartaMao(Carta carta);
 	void removeCartaMao(Carta carta);
 	Carta getCartaMao(int posicao);
 	std::vector<Carta> getMao();
+	void setMao(vector<Carta> mao);
 	int getNumeroCartas();
 	void limparCartasMao();
 	bool operator <(const Jogador& outroJogador) const;

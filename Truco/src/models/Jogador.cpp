@@ -8,19 +8,11 @@ Jogador::Jogador(string nome) {
 	this->nome = nome;
 }
 
-Jogador::Jogador(string nome, vector<Carta> cartas,bool ehBot) {
+Jogador::Jogador(string nome, vector<Carta> cartas) {
 	this->nome = nome;
 	this->mao = cartas;
-	this->ehBot = ehBot;
 }
 
-void Jogador::setEhBot(bool ehBot) {
-	this->ehBot = ehBot;
-}
-
-bool Jogador::getEhBot() {
-	return this->ehBot;
-}
 string Jogador::getNome() {
 	return this->nome;
 }
@@ -33,11 +25,15 @@ void Jogador::addCartaMao(Carta carta) {
 }
 
 void Jogador::removeCartaMao(Carta carta) {
-	for (unsigned int i = 0; i < this->mao.size(); i++) {
-		if (this->mao[i] == carta){
-			this->mao.erase(this->mao.begin() + i);
-		}
+	vector<Carta> aux = this->mao;
+
+	vector<Carta>::iterator position = find(aux.begin(), aux.end(), carta);
+
+	if (position != aux.end()) {
+		aux.erase(position);
 	}
+
+	this->mao = aux;
 }
 
 Carta Jogador::getCartaMao(int posicao) {
@@ -46,6 +42,11 @@ Carta Jogador::getCartaMao(int posicao) {
 
 vector<Carta> Jogador::getMao() {
 	return this->mao;
+}
+
+void Jogador::setMao(vector<Carta> mao)
+{
+	this->mao = mao;
 }
 
 int Jogador::getNumeroCartas() {

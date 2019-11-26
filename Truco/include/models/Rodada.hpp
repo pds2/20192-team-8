@@ -17,16 +17,17 @@ private:
 	int pontuacaoJogador;
 	int pontuacaoBot;
 	int valorRodada;
-	bool estaFinalizada();
 	Turno* getTurnoAtual();
 	void setPontuacao(vector<Jogador> jogadores, int pontos);
 	void pontuarTurnoAtual();
 public:
 	Rodada();
 	Rodada(Jogador jogador1, Jogador jogador2);
+	bool estaFinalizada();
 	void fazJogada(Jogador jogador, Carta carta);
 	void finalizarTurno();
 	vector<Jogador> getVencedores();
+	vector<Jogador> getVencedoresTurnoAtual();
 };
 
 #endif
