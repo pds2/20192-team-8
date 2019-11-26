@@ -1,8 +1,10 @@
+
 #ifndef JOGADOR_H
 #define JOGADOR_H
 
 #include <Carta.hpp>
 #include <vector>
+#include <algorithm>
 #include<string>
 
 using namespace std;
@@ -15,7 +17,7 @@ private:
 	 */
 	string nome;
 	/**
-	 * @brief Bool que controla se jogador È bot
+	 * @brief Bool que controla se jogador √© bot
 	 *
 	 */
 	bool ehBot;
@@ -44,19 +46,19 @@ public:
 	 *
 	 * @param nome
 	 * @param cartas - vector de cartas do jogador
-	 * @param ehBot - bool que define se jogador È bot
+	 * @param ehBot - bool que define se jogador √© bot
 	 */
 	Jogador(string nome, vector<Carta> cartas,bool ehBot);
 
 	/**
 	 * @brief Define o bool ehBot do jogador
 	 *
-	 * @param ehBot - define se jogador È ou n„o bot
+	 * @param ehBot - define se jogador √© ou n√£o bot
 	 */
 	void setEhBot(bool ehBot);
 
 	/**
-	* @brief Retorna se o jogador È bot
+	* @brief Retorna se o jogador √© bot
 	*
 	* @return bool
 	*/
@@ -66,6 +68,7 @@ public:
 	*
 	* @return string
 	*/
+
 	string  getNome();
 
 	/**
@@ -76,7 +79,7 @@ public:
 	void setNome(string nome);
 
 	/**
-	* @brief Adiciona carta ao vector de cartas "m„o" do jogador 
+	* @brief Adiciona carta ao vector de cartas "m√£o" do jogador 
 	*
 	* @param carta - carta a ser adicionada
 	*/
@@ -89,9 +92,9 @@ public:
 	void removeCartaMao(Carta carta);
 
 	/**
-	* @brief Retorna carta de determinada posiÁ„o da m„o do jogador
+	* @brief Retorna carta de determinada posi√ß√£o da m√£o do jogador
 	*
-	* @return Carta - Carta na posiÁ„o indicada
+	* @return Carta - Carta na posi√ß√£o indicada
 	*/
 	Carta getCartaMao(int posicao);
 	/**
@@ -101,10 +104,12 @@ public:
 	*/
 	std::vector<Carta> getMao();
 
+	void setMao(vector<Carta> mao);
+
 	/**
-	* @brief Retorna o n˙mero de cartas da "mao" do jogador
+	* @brief Retorna o n√∫mero de cartas da "mao" do jogador
 	*
-	* @return int - numero de cartas da m„o do jogador
+	* @return int - numero de cartas da m√£o do jogador
 	*/
 	int getNumeroCartas();
 

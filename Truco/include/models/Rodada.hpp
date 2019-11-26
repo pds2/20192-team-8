@@ -28,13 +28,13 @@ private:
 
 
 	/**
-	 * @brief pontuação do jogador 
+	 * @brief pontuaÃ§Ã£o do jogador 
 	 */
 	int pontuacaoJogador;
 
 
 	/**
-	 * @brief pontuação do bot 
+	 * @brief pontuaÃ§Ã£o do bot 
 	 */
 	int pontuacaoBot;
 
@@ -43,9 +43,8 @@ private:
 	 */
 	int valorRodada;
 
-
-	/**
-	 * @brief Função que verifica o fim da rodada 
+  /**
+	 * @brief FunÃ§Ã£o que verifica o fim da rodada 
 	 * @return bool 
 	*/
 	bool estaFinalizada();
@@ -65,7 +64,7 @@ private:
 	void setPontuacao(vector<Jogador> jogadores, int pontos);
 
 	/**
-	 * @brief Aumenta a pontuação dos vencedores do turno
+	 * @brief Aumenta a pontuaÃ§Ã£o dos vencedores do turno
 	 */
 	void pontuarTurnoAtual();
 public:
@@ -80,6 +79,9 @@ public:
 	 * @param jogador2
 	 */
 	Rodada(Jogador jogador1, Jogador jogador2);
+
+	bool estaFinalizada();
+
 	/**
 	 * @brief Realiza a jogada 
 	 * @param jogador
@@ -97,6 +99,7 @@ public:
 	 * @return vector<Jogador> - vencedores do turno
 	 */
 	vector<Jogador> getVencedores();
+	vector<Jogador> getVencedoresTurnoAtual();
 };
 
 #endif

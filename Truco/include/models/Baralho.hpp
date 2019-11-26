@@ -16,9 +16,11 @@ private:
 	 *
 	 */
 	vector <Carta> cartas;
-
+	
+  Carta cartaVira;
+  
 	/**
-	 * @brief Define o sÌmbolo da carta "vira" do truco paulista ( que define quais s„o as manilhas do truco paulista)
+	 * @brief Define o s√≠mbolo das manilhas do truco paulista
 	 *
 	 */
 	char simboloManilha;
@@ -37,13 +39,13 @@ public:
 	void resetarBaralho();
 
 	/**
-	 * @brief Define a carta que o jogador ir· retirar do baralho
+	 * @brief Define a carta que o jogador ir√° retirar do baralho
 	 *
 	 */
 	Carta compraCarta();
 
 	/**
-	 * @brief Define quantas cartas o jogador ir· retirar do trabalho
+	 * @brief Define quantas cartas o jogador ir√° retirar do trabalho
 	 *
 	 */
 	vector<Carta> compraCartas(int qtd);
@@ -54,10 +56,11 @@ public:
 	 */
 	void defineManilhas();
 
+	Carta getCartaVira();
 	/**
-	 * @brief Retorna o sÌmbolo da manilha do jogo
+	 * @brief Retorna o s√≠mbolo da manilha do jogo
 	 * @return char - simbolo da manilha
-	 */
+  */
 	char getSimboloManilha();
 
 	/**

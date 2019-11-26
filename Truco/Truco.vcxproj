@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\exceptions;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\include\utils;$(SolutionDir)\$(ProjectName)\include;$(SolutionDir)\$(ProjectName)\include\exceptions;$(SolutionDir)\$(ProjectName)\include\services;$(SolutionDir)\$(ProjectName)\include\models</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -163,6 +163,7 @@
     <ClCompile Include="src\models\Jogador.cpp" />
     <ClCompile Include="src\models\Rodada.cpp" />
     <ClCompile Include="src\models\Turno.cpp" />
+    <ClCompile Include="src\services\GerenciadorTurnos.cpp" />
     <ClCompile Include="src\Truco.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,8 @@
     <ClInclude Include="include\models\Jogador.hpp" />
     <ClInclude Include="include\models\Rodada.hpp" />
     <ClInclude Include="include\models\Turno.hpp" />
+    <ClInclude Include="include\services\GerenciadorTurnos.hpp" />
+    <ClInclude Include="include\utils\AuxiliaresConsole.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

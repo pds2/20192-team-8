@@ -146,6 +146,7 @@ public:
 	 * @param outraCarta - ponteiro de Carta que envia a carta a ser comparada
 	 */
 	bool operator==(const Carta& outraCarta) const;
+	operator std::string() const;
 };
 
 #endif
