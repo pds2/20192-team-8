@@ -8,9 +8,10 @@ Jogador::Jogador(string nome) {
 	this->nome = nome;
 }
 
-Jogador::Jogador(string nome, vector<Carta> cartas) {
+Jogador::Jogador(string nome, vector<Carta> cartas, bool ehBot) {
 	this->nome = nome;
 	this->mao = cartas;
+	this->ehBot = ehBot;
 }
 
 string Jogador::getNome() {

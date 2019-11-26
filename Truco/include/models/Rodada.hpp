@@ -43,12 +43,6 @@ private:
 	 */
 	int valorRodada;
 
-  /**
-	 * @brief Função que verifica o fim da rodada 
-	 * @return bool 
-	*/
-	bool estaFinalizada();
-
 
 	/**
 	 * @brief Retorna o turno atual
@@ -80,6 +74,10 @@ public:
 	 */
 	Rodada(Jogador jogador1, Jogador jogador2);
 
+	/**
+	 * @brief Função que verifica o fim da rodada
+	 * @return bool
+	*/
 	bool estaFinalizada();
 
 	/**

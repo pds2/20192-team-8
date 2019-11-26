@@ -44,7 +44,7 @@ void Baralho::defineManilhas()
 	this->cartaVira = this->compraCarta();
 	this->simboloManilha = mapProximaCarta.find(this->cartaVira.getSimbolo())->second;
 
-	for (int i = 0; i < this->cartas.size(); i++) {
+	for (int i = 0; i < (int)this->cartas.size(); i++) {
 		bool ehManilha = this->cartas[i].getSimbolo() == this->simboloManilha;
 		this->cartas[i].setManilha(ehManilha);
 	}
