@@ -10,17 +10,63 @@ using namespace std;
 
 class Baralho {
 private:
+
+	/**
+	 * @brief vector de cartas do baralho
+	 *
+	 */
 	vector <Carta> cartas;
+
+	/**
+	 * @brief Define o símbolo da carta "vira" do truco paulista ( que define quais são as manilhas do truco paulista)
+	 *
+	 */
 	char simboloManilha;
 public:
+
+	/**
+	 * @brief Construtor da classe Baralho
+	 *
+	 */
 	Baralho();
+
+	/**
+	 * @brief Reseta o baralho  do jogo
+	 *
+	 */
 	void resetarBaralho();
+
+	/**
+	 * @brief Define a carta que o jogador irá retirar do baralho
+	 *
+	 */
 	Carta compraCarta();
+
+	/**
+	 * @brief Define quantas cartas o jogador irá retirar do trabalho
+	 *
+	 */
 	vector<Carta> compraCartas(int qtd);
+
+	/**
+	 * @brief Define a carta vira do truco paulista
+	 *
+	 */
 	void defineManilhas();
+
+	/**
+	 * @brief Retorna o símbolo da manilha do jogo
+	 * @return char - simbolo da manilha
+	 */
 	char getSimboloManilha();
+
+	/**
+	 * @brief Retorna as cartas do jogador
+	 * @return vector<Carta> - vetor de cartas do jogador
+	 */
 	vector<Carta> getCartas();
 };
+
 
 const char simbolosBaralho[10] = { '4', '5', '6', '7', 'Q', 'J', 'K', 'A', '2', '3' };
 
