@@ -74,3 +74,8 @@ bool Jogador::operator==(const Jogador& outroJogador) const
 {
 	return this->nome == outroJogador.nome;
 }
+
+bool Jogador::operator!=(const Jogador& outroJogador) const
+{
+	return this->nome != outroJogador.nome;
+}

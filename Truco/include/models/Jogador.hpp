@@ -136,6 +136,12 @@ public:
 	 * @param outroJogador - ponteiro de Jogador que envia o jogador a ser comparado
 	 */
 	bool operator ==(const Jogador& outroJogador) const;
+	/**
+	 * @brief Sobrescrita do operador !=
+	 *
+	 * @param outroJogador - ponteiro de Jogador que envia o jogador a ser comparado
+	 */
+	bool operator !=(const Jogador& outroJogador) const;
 };
 
 #endif

@@ -18,7 +18,7 @@ namespace auxiliaresConsole {
 		const char* mensagem = s.c_str();
 
 		int l = strlen(mensagem);
-		int pos = (int)((3000 - l) / 2);
+		int pos = (int)((4950 - l) / 2);
 		for (int i = 0; i < pos; i++) {
 			cout << " ";
 		}
@@ -78,16 +78,17 @@ namespace auxiliaresConsole {
 
 	void imprimirTruco(int velocidade) {
 		limpaConsole();
-		for (int i = 0; i < 5; i++) {
-			cout << ".___________..______       __    __      ______   ______  " << endl;
-			cout << "|           ||   _  \\     |  |  |  | /      | /  __  \\ " << endl;
-			cout << "`---|  |----`|  |_)  |    |  |  |  ||  ,----'|  |  |  |" << endl;
-			cout << "    |  |     |      /     |  |  |  ||  |     |  |  |  |" << endl;
-			cout << "    |  |     |  |\\  \\----.|  `--'  ||  `----.|  `--'  |" << endl;
-			cout << "    |__|     | _| `._____| \\______/  \\______| \\______/ " << endl;
-			cout << "" << endl;
+		for (int i = 0; i < 4; i++) {
+			cout << "\t\t\t\t\t\t.___________..______     __    __   ______   ______      ____" << endl << flush;
+			cout << "\t\t\t\t\t\t|           ||   _  \\   |  |  |  | /      | /  __  \\     |  |  " << endl << flush;
+			cout << "\t\t\t\t\t\t`---|  |----`|  |_)  |  |  |  |  ||  ,----'|  |  |  |    |  |   " << endl << flush;
+			cout << "\t\t\t\t\t\t    |  |     |      /   |  |  |  ||  |     |  |  |  |    |__|  " << endl << flush;
+			cout << "\t\t\t\t\t\t    |  |     |  |\\  \\   |  `--'  ||  `----.|  `--'  |    /  \\  "<< endl << flush;
+			cout << "\t\t\t\t\t\t    |__|     | _| `._`.  \\______/  \\______| \\______/     \\__/   " << endl << flush;
+			cout << "" << endl << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 			limpaConsole();
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 
 		}
@@ -95,16 +96,18 @@ namespace auxiliaresConsole {
 
 	void imprimirSeis(int velocidade) {
 		limpaConsole();
-		for (int i = 0; i < 5; i++) {
-			cout << "     _______. _______  __      _______." << endl;
-			cout << "    /       ||   ____||  |    /       |" << endl;
-			cout << "   |   (----`|  |__   |  |   |   (----`" << endl;
-			cout << "    \\   \\    |   __|  |  |    \\   \\    " << endl;
-			cout << ".----)   |   |  |____ |  |.----)   |   " << endl;
-			cout << "|_______/    |_______||__||_______/    " << endl;
-			cout << "" << endl;
+		for (int i = 0; i < 4; i++) {
+			cout << "\t\t\t\t\t\t     _______. _______  __      _______." << endl << flush;
+			cout << "\t\t\t\t\t\t    /       ||   ____||  |    /       |" << endl << flush;
+			cout << "\t\t\t\t\t\t   |   (----`|  |__   |  |   |   (----`" << endl << flush;
+			cout << "\t\t\t\t\t\t    \\   \\    |   __|  |  |    \\   \\    " << endl << flush;
+			cout << "\t\t\t\t\t\t.----)   |   |  |____ |  |.----)   |   " << endl << flush;
+			cout << "\t\t\t\t\t\t|_______/    |_______||__||_______/    " << endl << flush;
+			cout << "" << endl << flush;
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 			limpaConsole();
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 
 		}
@@ -112,16 +115,18 @@ namespace auxiliaresConsole {
 
 	void imprimirNove(int velocidade) {
 		limpaConsole();
-		for (int i = 0; i < 5; i++) {
-			cout << ".__   __.  ______  ____    ____ _______ " << endl;
-			cout << "|  \\ |  | /  __  \\ \\   \\  /   /|   ____|" << endl;
-			cout << "|   \\|  ||  |  |  | \\   \\/   / |  |__   " << endl;
-			cout << "|  . `  ||  |  |  |  \\      /  |   __|  " << endl;
-			cout << "|  |\\   ||  `--'  |   \\    /   |  |____ " << endl;
-			cout << "|__| \\__| \\______/     \\__/    |_______|" << endl;
-			cout << "" << endl;
+		for (int i = 0; i < 4; i++) {
+			cout << "\t\t\t\t\t\t.__   __.  ______  ____    ____ _______ " << endl << flush;
+			cout << "\t\t\t\t\t\t|  \\ |  | /  __  \\ \\   \\  /   /|   ____|" << endl << flush;
+			cout << "\t\t\t\t\t\t|   \\|  ||  |  |  | \\   \\/   / |  |__   " << endl << flush;
+			cout << "\t\t\t\t\t\t|  . `  ||  |  |  |  \\      /  |   __|  " << endl << flush;
+			cout << "\t\t\t\t\t\t|  |\\   ||  `--'  |   \\    /   |  |____ " << endl << flush;
+			cout << "\t\t\t\t\t\t|__| \\__| \\______/     \\__/    |_______|" << endl << flush;
+			cout << "" << endl << flush;
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 			limpaConsole();
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 
 		}
@@ -129,18 +134,19 @@ namespace auxiliaresConsole {
 
 	void imprimirDoze(int velocidade) {
 		limpaConsole();
-		for (int i = 0; i < 5; i++) {
-			cout << " _______    ______   ________   _______ " << endl;
-			cout << "|       \\  /  __  \\ |       /  |   ____|" << endl;
-			cout << "|  .--.  ||  |  |  |`---/  /   |  |__   " << endl;
-			cout << "|  |  |  ||  |  |  |   /  /    |   __|  " << endl;
-			cout << "|  '--'  ||  `--'  |  /  /----.|  |____ " << endl;
-			cout << "|_______/  \\______/  /________||_______|" << endl;
-			cout << "" << endl;
+		for (int i = 0; i < 4; i++) {
+			cout << "\t\t\t\t\t\t _______    ______   ________   _______ " << endl << flush;
+			cout << "\t\t\t\t\t\t|       \\  /  __  \\ |       /  |   ____|" << endl << flush;
+			cout << "\t\t\t\t\t\t|  .--.  ||  |  |  |`---/  /   |  |__   " << endl << flush;
+			cout << "\t\t\t\t\t\t|  |  |  ||  |  |  |   /  /    |   __|  " << endl << flush;
+			cout << "\t\t\t\t\t\t|  '--'  ||  `--'  |  /  /----.|  |____ " << endl << flush;
+			cout << "\t\t\t\t\t\t|_______/  \\______/  /________||_______|" << endl << flush;
+			cout << "" << endl << flush;
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
 			limpaConsole();
+			cout << flush;
 			this_thread::sleep_for(chrono::milliseconds(velocidade));
-
 		}
 	}
 }

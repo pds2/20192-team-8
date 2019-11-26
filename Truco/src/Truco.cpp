@@ -9,6 +9,7 @@
 #include <Turno.hpp>
 #include <GerenciadorTurnos.hpp>
 #include <GerenciadorRodadas.hpp>
+#include <AuxiliaresConsole.hpp>
 
 using namespace std;
 

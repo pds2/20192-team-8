@@ -27,6 +27,11 @@ private:
 	 */
 	Jogador bot;
 
+	/**
+	 * @brief Jogador que fez o ultimo aumento de valor
+	 */
+	Jogador jogadorTrucou;
+
 
 	/**
 	 * @brief pontuação do jogador 
@@ -96,13 +101,26 @@ public:
 	/**
 	 * @brief Aumenta o valor da Rodada
 	 */
-	void aumentarValor();
+	void aumentarValor(Jogador jogadorTrucou);
 
 	/**
 	 * @brief Retorna o(s) vencedor(es) do turno
 	 * @return vector<Jogador> - vencedores do turno
 	 */
 	vector<Jogador> getVencedores();
+
+	/**
+	 * @brief Retorna o valor da Rodada
+	 * @return int - valor da Rodada
+	 */
+	int getValor();
+	
+	/**
+	 * @brief Retorna o ultimo jogador que aumentou o valor
+	 * @return Jogador - ultimo jogador que aumentou o valor
+	 */
+	Jogador getJogadorTrucou();
+
 	vector<Jogador> getVencedoresTurnoAtual();
 };
 

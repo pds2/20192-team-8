@@ -20,8 +20,12 @@ private:
 	Jogador* jogador;
 	Jogador* bot;
 	Baralho baralho;
+	map<int, string> nomeAumentoValor;
 	void imprimirCartasDoJogador();
-	void aumentarValorRodada();
+	void aguardarRespostaTrucoJogador();
+	void aguardarRespostaTrucoBot();
+	void aumentarValorRodada(Jogador jogadorTrucou);
+	Carta aguardaJogadaUsuario();
 	Carta fazerJogada();
 	Carta fazerJogadaBot();
 	void imprimirJogadas(Carta cartaJogador, Carta cartaBot);

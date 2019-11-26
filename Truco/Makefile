@@ -46,4 +46,7 @@ objFolder:
 clean:
 	@ $(RM) objects
 
+run: all
+	@ ./$(PROJ_NAME)
+
 .PHONY: all clean
