@@ -1,0 +1,12 @@
+        -:    0:Source:exceptions/RodadaJaFinalizada.cpp
+        -:    0:Programs:9
+        -:    1:#include <RodadaJaFinalizada.hpp>
+        -:    2:
+        -:    3:
+    #####:    4:RodadaJaFinalizada::RodadaJaFinalizada() : runtime_error("Não é possível realizar a operação, pois a Rodada ainda não terminou.")
+        -:    5:{
+    #####:    6:}
+        -:    7:
+    #####:    8:RodadaJaFinalizada::RodadaJaFinalizada(string mensagem) : runtime_error(mensagem)
+        -:    9:{
+    #####:   10:}

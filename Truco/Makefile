@@ -1,52 +1,46 @@
-# Name of the project
-PROJ_NAME=truco
+CC := g++
+SRCDIR := src
+TSTDIR := tests
+OBJDIR := build
+BINDIR := bin
 
-# .cpp files
-C_SOURCE=$(wildcard ./src/*.cpp) $(wildcard ./src/*/*.cpp)
+MAIN := program/Truco.cpp
+TESTER := program/Tester.cpp
 
-# .hpp files
-H_SOURCE=$(wildcard ./include/*.hpp) $(wildcard ./include/*/*.hpp)
+SRCEXT := cpp
+SOURCES := $(shell find $(SRCDIR) -type f -name '*.$(SRCEXT)')
+OBJECTS := $(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+TSTSOURCES := $(shell find $(TSTDIR) -type f -name '*.$(SRCEXT)')
 
-# Object files
-OBJ=$(subst .cpp,.o,$(subst src,objects,$(C_SOURCE)))
+CFLAGS := -g --coverage -ftest-coverage -Wall -O3 -std=c++11
 
-# Include Flag
-INCDIRS= $(addprefix -I,$(shell find include -type d -print))
+H_SOURCE=$(wildcard ./include/*.h) $(wildcard ./include/*.hpp) $(wildcard ./include/*/*.hpp)
+INC=$(addprefix -I,$(shell find include -type d -print))
 
-# Compiler and linker
-CC=g++
+$(OBJDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
-# Flags for compiler
-CC_FLAGS=-c         \
-         -W         \
-         -Wall      \
-         -ansi      \
-         -pedantic \
+main: $(OBJECTS)
+	@mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $(INC) $(MAIN) $^ -o $(BINDIR)/main
 
-# Command used at clean target
-RM = rm -rf
+tests: $(OBJECTS)
+	@mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $(INC) $(TESTER) $(TSTSOURCES) $^ -o $(BINDIR)/tester
+	$(BINDIR)/tester
 
-#
-# Compilation and linking
-#
-all: objFolder $(PROJ_NAME)
+all: main
 
-$(PROJ_NAME): $(OBJ)
-	$(CC) $^ -std=c++11 -o $@
+run: main
+	$(BINDIR)/main
 
-./objects/%.o: ./src/%.cpp ./include/%.hpp
-	$(CC) $< $(CC_FLAGS) ${INCDIRS} -std=c++11 -o $@
-
-./objects/Truco.o: ./src/Truco.cpp $(H_SOURCE)
-	$(CC) $< $(CC_FLAGS) ${INCDIRS} -std=c++11 -o $@
-
-objFolder:
-	@ mkdir -p $(subst include,objects,$(shell find include -type d -print))
+coverage:
+	@mkdir -p coverage/
+	@gcov -s $(SRCDIR) $(SOURCES) -rlpo build/
+	@$(RM) *.gcda *.gcno
 
 clean:
-	@ $(RM) objects
+	$(RM) -r $(OBJDIR)/* $(BINDIR)/* coverage/* *.gcda *.gcno
 
-run: all
-	@ ./$(PROJ_NAME)
-
-.PHONY: all clean
+.PHONY: clean coverage

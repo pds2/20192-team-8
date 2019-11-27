@@ -10,7 +10,7 @@ class RodadaIncompleta: public runtime_error
 public:
 
 	/**
-	 * @brief Exceção para quando a rodada esta incompleta
+	 * @brief Exceï¿½ï¿½o para quando a rodada esta incompleta
 	 *
 	 */
 	RodadaIncompleta();
