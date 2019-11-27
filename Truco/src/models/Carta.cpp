@@ -86,6 +86,16 @@ bool Carta::operator==(const Carta& outraCarta) const
 	return this->simbolo == outraCarta.simbolo && this->naipe == outraCarta.naipe;
 }
 
+bool Carta::operator>=(const Carta& outraCarta) const
+{
+	return this->valor >= outraCarta.valor;
+}
+
+bool Carta::operator<=(const Carta& outraCarta) const
+{
+	return this->valor >= outraCarta.valor;
+}
+
 Carta::operator std::string() const {
 	string str;
 

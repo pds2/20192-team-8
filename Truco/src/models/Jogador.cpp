@@ -2,10 +2,12 @@
 
 Jogador::Jogador()
 {
+	this->ehBot = false;
 }
 
-Jogador::Jogador(string nome) {
+Jogador::Jogador(string nome, bool ehBot) {
 	this->nome = nome;
+	this->ehBot = ehBot;
 }
 
 Jogador::Jogador(string nome, vector<Carta> cartas, bool ehBot) {
@@ -71,4 +73,9 @@ bool Jogador::operator>(const Jogador& outroJogador) const
 bool Jogador::operator==(const Jogador& outroJogador) const
 {
 	return this->nome == outroJogador.nome;
+}
+
+bool Jogador::operator!=(const Jogador& outroJogador) const
+{
+	return this->nome != outroJogador.nome;
 }

@@ -20,15 +20,19 @@ private:
 	Jogador* jogador;
 	Jogador* bot;
 	Baralho baralho;
-	void imprimirCartasDoJogador();
-	void distribuirCartas();
+	map<int, string> nomeAumentoValor;
+	void imprimirDadosTurno();
+	void aguardarRespostaTrucoJogador();
+	void aguardarRespostaTrucoBot();
+	void aumentarValorRodada(Jogador jogadorTrucou);
+	Carta aguardaJogadaUsuario();
 	Carta fazerJogada();
 	Carta fazerJogadaBot();
 	void imprimirJogadas(Carta cartaJogador, Carta cartaBot);
 	void imprimirVencedor();
 public:
-	GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot);
-	Jogador executarTurno();
+	GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* bot, Baralho baralho);
+	void executarTurno();
 };
 
 #endif

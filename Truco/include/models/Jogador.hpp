@@ -39,7 +39,7 @@ public:
 	 *
 	 * @param nome
 	 */
-	Jogador(string nome);
+	Jogador(string nome, bool ehBot = false);
 
 	/**
 	 * @brief Construtor da classe Jogador
@@ -48,7 +48,7 @@ public:
 	 * @param cartas - vector de cartas do jogador
 	 * @param ehBot - bool que define se jogador é bot
 	 */
-	Jogador(string nome, vector<Carta> cartas,bool ehBot);
+	Jogador(string nome, vector<Carta> cartas, bool ehBot);
 
 	/**
 	 * @brief Define o bool ehBot do jogador
@@ -136,6 +136,12 @@ public:
 	 * @param outroJogador - ponteiro de Jogador que envia o jogador a ser comparado
 	 */
 	bool operator ==(const Jogador& outroJogador) const;
+	/**
+	 * @brief Sobrescrita do operador !=
+	 *
+	 * @param outroJogador - ponteiro de Jogador que envia o jogador a ser comparado
+	 */
+	bool operator !=(const Jogador& outroJogador) const;
 };
 
 #endif
