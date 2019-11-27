@@ -14,7 +14,15 @@ GerenciadorTurnos::GerenciadorTurnos(Rodada* rodada, Jogador* jogador, Jogador* 
 	};
 }
 
-void GerenciadorTurnos::imprimirCartasDoJogador() {
+void GerenciadorTurnos::imprimirDadosTurno() {
+	string comandoJogada;
+
+	limpaConsole();
+
+	imprimirPausadamente("A rodada vale " + to_string(this->rodada->getValor()) + " pontos.\n\n");
+
+	imprimirPausadamente("A carta vira eh: " + string(this->baralho.getCartaVira()) + "\n\n");
+
 	imprimirPausadamente("Suas cartas sao: \n");
 
 	vector<Carta> cartasJogador = this->jogador->getMao();
@@ -22,21 +30,36 @@ void GerenciadorTurnos::imprimirCartasDoJogador() {
 		Carta carta = cartasJogador[i];
 		imprimirPausadamente(to_string(i + 1) + ":\t" + string(carta) + "\n");
 	}
+
+	if(this->rodada->getValor() < 12 && this->rodada->getJogadorTrucou() != *this->jogador){
+		comandoJogada = "\nDigite a carta que voce quer jogar, F para desistir ou T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor());
+	} else {
+		comandoJogada = "\nDigite a carta que voce quer jogar ou F para desistir";
+	}
+
+	imprimirPausadamente(comandoJogada + ": ");
 }
 
 void GerenciadorTurnos::aguardarRespostaTrucoJogador(){
 	limpaConsole();
 	char opcaoJogador;
 
-	cout << "Digite S para aceitar, F para fugir ou T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor());
+	cout << "A maquina te desafiou, e agora?\n\n";
+	
+	if(this->rodada->getValor() < 12){
+		cout << "Digite S para aceitar, F para fugir ou T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor()) + ": ";
+	} else{
+		cout << "Digite S para aceitar ou F para fugir: ";
+	}
+
 	cin >> opcaoJogador;
 
-	if(opcaoJogador == 'S' || opcaoJogador == 's'){
+	if(toupper(opcaoJogador) == 'S'){
 		return;
-	} else if(opcaoJogador == 'F' || opcaoJogador == 'f'){
-		//TODO implementar desistencia
+	} else if(toupper(opcaoJogador) == 'F'){
+		this->rodada->desistir(*this->jogador);
 		return;
-	} else if(opcaoJogador == 'T' || opcaoJogador == 't'){
+	} else if(toupper(opcaoJogador) == 'T' && this->rodada->getValor() < 12){
 		this->aumentarValorRodada(*this->jogador);
 		return;
 	}
@@ -50,7 +73,7 @@ void GerenciadorTurnos::aguardarRespostaTrucoBot(){
 
 	switch(respostaBot){
 		case 0:
-			//TODO implementar desistencia
+			this->rodada->desistir(*this->bot);
 			imprimirPausadamente("A maquina recusou seu truco.");
 			this_thread::sleep_for(chrono::milliseconds(1000));
 			break;
@@ -91,66 +114,74 @@ void GerenciadorTurnos::aumentarValorRodada(Jogador jogadorTrucou) {
 
 Carta GerenciadorTurnos::aguardaJogadaUsuario()
 {
-	char confirmacao = '\0';
-	char aux;
+	char aux = 'N';
 	int indiceCarta;
 	Carta cartaJogada = Carta();
 
 	vector<Carta> cartasJogador = this->jogador->getMao();
 
-	string comandoAumentoValor = " ou pressione T para pedir " + this->nomeAumentoValor.at(this->rodada->getValor());
-	string comandoJogada = "\nDigite a carta que voce quer jogar";
+	this->imprimirDadosTurno();
 
-	if(this->rodada->getJogadorTrucou() != *this->jogador){
-		comandoJogada += comandoAumentoValor;
+	cin >> aux;
+
+	if (toupper(aux) == 'T' && this->rodada->getValor() < 12) {
+		this->aumentarValorRodada(*this->jogador);
+		if(this->rodada->estaFinalizada()){
+			return cartaJogada;
+		} else{
+			return this->aguardaJogadaUsuario();
+		}
 	}
-
-	imprimirPausadamente(comandoJogada + ": ");
-
-	if (cin >> aux) {
-		if (aux == 't' || aux == 'T') {
-			this->aumentarValorRodada(*this->jogador);
+	else if (toupper(aux) == 'F') {
+		limpaConsole();
+		imprimirPausadamente("Voce tem certeza que deseja desistir? \nDigite S para confirmar ou qualquer outro digito para cancelar: ");
+			
+		cin >> aux;
+		if(toupper(aux) == 'S'){
+			this->rodada->desistir(*this->jogador);
+		} else{
+			return this->aguardaJogadaUsuario();
 		}
-		else {
-			indiceCarta = (int)aux - 48;
-			if (indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
-				cartaJogada = cartasJogador.at(indiceCarta - 1);
-
-				limpaConsole();
-				imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar: ");
-				cin >> confirmacao;
-			}
-		}
+		return cartaJogada;
 	}
 	else {
-		cin.clear();
-		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
+		indiceCarta = (int)aux - 48;
+		if (indiceCarta > 0 && indiceCarta <= (int)cartasJogador.size()) {
+			cartaJogada = cartasJogador.at(indiceCarta - 1);
 
-	return cartaJogada;
+			limpaConsole();
+			
+			imprimirPausadamente("Voce selecionou a carta: " + string(cartaJogada) + "\nDigite S para confirmar ou qualquer outro digito para cancelar: ");
+			
+			cin >> aux;
+			if(toupper(aux) == 'S'){
+				return cartaJogada;
+			}
+		}
+		else {
+			limpaConsole();
+
+			imprimirPausadamente("Entrada invalida!");
+			
+			this_thread::sleep_for(chrono::milliseconds(1000));
+		}
+		return this->aguardaJogadaUsuario();
+	}
 }
 
 Carta GerenciadorTurnos::fazerJogada() {
 	Carta cartaJogada;
-	char confirmacao = '\0';
 
 	Carta cartaVira = this->baralho.getCartaVira();
 
 	vector<Carta> cartasJogador = this->jogador->getMao();
 
-	do {
-		limpaConsole();
+	cartaJogada = this->aguardaJogadaUsuario();
 
-		imprimirPausadamente("A carta vira eh: " + string(cartaVira) + "\n\n");
-
-		this->imprimirCartasDoJogador();
-
-		cartaJogada = this->aguardaJogadaUsuario();
-		
-	} while (confirmacao != 'S' && confirmacao != 's');
-
-	this->jogador->removeCartaMao(cartaJogada);
-	this->rodada->fazJogada(*this->jogador, cartaJogada);
+	if(!this->rodada->estaFinalizada()){
+		this->jogador->removeCartaMao(cartaJogada);
+		this->rodada->fazJogada(*this->jogador, cartaJogada);
+	}
 
 	return cartaJogada;
 }
@@ -164,7 +195,7 @@ Carta GerenciadorTurnos::fazerJogadaBot() {
 	Carta cartaJogadaBot = this->bot->getCartaMao(indiceAleatorioCartaBot);
 	this->bot->removeCartaMao(cartaJogadaBot);
 
-	imprimirCarregamentoComIcone("A maquina pondera sobre sua jogada... ");
+	imprimirCarregamentoComIcone("A maquina calcula sua jogada... ");
 
 	this->bot->removeCartaMao(cartaJogadaBot);
 	this->rodada->fazJogada(*this->bot, cartaJogadaBot);
@@ -206,13 +237,17 @@ void GerenciadorTurnos::executarTurno()
 {
 	Carta cartaJogada = this->fazerJogada();
 
-	Carta cartaJogadaBot = this->fazerJogadaBot();
+	if(!this->rodada->estaFinalizada()){
+		Carta cartaJogadaBot = this->fazerJogadaBot();
 
-	this->imprimirJogadas(cartaJogada, cartaJogadaBot);
+		this->imprimirJogadas(cartaJogada, cartaJogadaBot);
 
-	imprimirCarregamentoVertical();
+		imprimirCarregamentoVertical();
 
-	this->imprimirVencedor();
+		this->rodada->finalizarTurno();
 
-	aguardarTecla();
+		this->imprimirVencedor();
+
+		aguardarEnter();
+	}
 }

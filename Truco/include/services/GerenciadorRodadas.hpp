@@ -18,6 +18,7 @@ private:
 	Jogador* bot;
 	Baralho baralho;
 	void distribuirCartas();
+	void imprimirVencedor();
 public:
 	GerenciadorRodadas(Rodada* rodada, Jogador* jogador, Jogador* bot);
 	void executarRodada();

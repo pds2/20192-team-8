@@ -65,9 +65,9 @@ namespace auxiliaresConsole {
 		cout << "\n\n";
 	}
 
-	void aguardarTecla() {
+	void aguardarEnter() {
 		cout << '\n' << "Pressione <ENTER> para continuar...";
-		std::cin.ignore();
+		cin.ignore();
 
 		#ifdef _WIN32
 				system("pause >nul");
