@@ -22,7 +22,7 @@ Rodada::Rodada(Jogador jogador, Jogador bot)
 }
 
 bool Rodada::estaFinalizada() {
-	if (pontuacaoJogador >= 3 || (pontuacaoBot >= 3 && pontuacaoJogador != pontuacaoBot)) {
+	if ((pontuacaoJogador >= 3 || pontuacaoBot >= 3) && pontuacaoJogador != pontuacaoBot) {
 		return true;
 	}
 	return false;
@@ -105,6 +105,16 @@ int Rodada::getValor(){
 
 Jogador Rodada::getJogadorTrucou(){
 	return this->jogadorTrucou;
+}
+
+void Rodada::desistir(Jogador jogadorDesistente){
+	if(jogadorDesistente == this->jogador){
+		this->pontuacaoJogador = 0;
+		this->pontuacaoBot = 3;
+	} else if(jogadorDesistente == this->bot){
+		this->pontuacaoBot = 0;
+		this->pontuacaoJogador = 3;
+	}
 }
 
 vector<Jogador> Rodada::getVencedoresTurnoAtual()

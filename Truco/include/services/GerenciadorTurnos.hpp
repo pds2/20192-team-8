@@ -21,7 +21,7 @@ private:
 	Jogador* bot;
 	Baralho baralho;
 	map<int, string> nomeAumentoValor;
-	void imprimirCartasDoJogador();
+	void imprimirDadosTurno();
 	void aguardarRespostaTrucoJogador();
 	void aguardarRespostaTrucoBot();
 	void aumentarValorRodada(Jogador jogadorTrucou);

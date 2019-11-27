@@ -22,6 +22,21 @@ void GerenciadorRodadas::distribuirCartas() {
 	this->bot->setMao(cartasBot);
 }
 
+void GerenciadorRodadas::imprimirVencedor(){
+	limpaConsole();
+
+	if(this->rodada->getVencedores().size() > 1){
+		imprimirPausadamente("A rodada terminou empatada!");
+	} else if(this->rodada->getVencedores().at(0) == *this->jogador){
+		imprimirPausadamente("Parabéns, você venceu a rodada! :)");
+	} else if(this->rodada->getVencedores().at(0) == *this->bot){
+		imprimirPausadamente("Aff! A maquina venceu a rodada! :(");
+	}
+	cout << "\n\n";
+
+	aguardarEnter();
+}
+
 void GerenciadorRodadas::executarRodada() {
 	this->distribuirCartas();
 
@@ -29,6 +44,7 @@ void GerenciadorRodadas::executarRodada() {
 	
 	while (!this->rodada->estaFinalizada()) {
 		gerenciadorTurnos.executarTurno();
-		this->rodada->finalizarTurno();
 	}
+
+	this->imprimirVencedor();
 }

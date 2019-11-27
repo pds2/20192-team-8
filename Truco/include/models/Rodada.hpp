@@ -121,15 +121,20 @@ public:
 	 */
 	Jogador getJogadorTrucou();
 
+	/**
+	* @brief Torna jogador restante como vitorioso
+ 	* @param jogadorDesistente - o jogador que desistiu
+	*/
+	void desistir(Jogador jogadorDesistente);
+
 	vector<Jogador> getVencedoresTurnoAtual();
 };
 
 const map<char, char> mapProximoValor = {
 	{2, 4},
 	{4, 6},
-	{6, 8},
-	{8, 10},
-	{10, 12},
+	{6, 9},
+	{9, 12},
 };
 
 #endif
