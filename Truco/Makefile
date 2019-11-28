@@ -36,9 +36,10 @@ run: main
 	$(BINDIR)/main
 
 coverage:
+	mv $(OBJDIR)/*/*.gcda $(OBJDIR)/*/*.gcno $(OBJDIR) 2>/dev/null; true
 	@mkdir -p coverage/
-	@gcov -s $(SRCDIR) $(SOURCES) -rlpo build/
-	@$(RM) *.gcda *.gcno
+	@gcov -s $(SRCDIR) $(SOURCES) -rlpo build/ -s coverage/
+	@$(RM) $(OBJDIR)/*.gcda $(OBJDIR)/*.gcno
 
 clean:
 	$(RM) -r $(OBJDIR)/* $(BINDIR)/* coverage/* *.gcda *.gcno
