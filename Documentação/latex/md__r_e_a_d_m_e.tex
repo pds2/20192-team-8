@@ -1,0 +1,112 @@
+Projeto da disciplina Programação e Desenvolvimento de Software II do curso Sistemas de Informação da U\+F\+MG\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{User Stories}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Como usuário eu quero iniciar o programa e ver um menu para eu iniciar o jogo, ver o ranking de jogadores e sair do sistema
+\item Como usuário eu quero clicar no botão de iniciar jogo e aparecer uma tela de iniciar jogo contra um jogador e iniciar jogo contra a máquina
+\item Como usuário quero clicar no botão de ranking e ver uma lista ordenada pelos jogadores que mais ganharam e quantas partidas ganharam
+\item Como usuário quero clicar no botão para jogar contra a máquina, o sistema perguntar meu nome e ir para uma tela que irá ter informações sobre o jogo ( cartas, rodada, pontuação, etc ) e botões para pedir truco,seis,nove ou queda.
+\item Como usuário espero que quando alguém peça truco, seis, nove ou queda, eu tenha o opção de aceitar ou correr.
+\item Como usuário espero que quando alguém ganhe ou perca o jogo apareça uma tela falando quem venceu e redirecionar para o menu.
+\item Como usuário espero que quando clique para jogar contra outro jogador faça o mesmo fluxo que quando estou jogando contra a máquina, porém terão dois usuário dando inputs para a tela.
+\item Como usuário espero que depois que clicar em sair fechar o sistema.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{C\+R\+C\textquotesingle{}s}\label{md__r_e_a_d_m_e_autotoc_md2}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogador}}   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogador}}   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+Gerenciar as cartas de sua mão  &Carta   \\\cline{1-2}
+realizar as jogadas  &Jogo   \\\cline{1-2}
+&Rodada   \\\cline{1-2}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Carta}}   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Carta}}   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+O valor da carta  &Baralho   \\\cline{1-2}
+O naipe da carta  &Jogador   \\\cline{1-2}
+O número/letra da carta  &Rodada   \\\cline{1-2}
+&Jogador\+Bot   \\\cline{1-2}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Baralho}}   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Baralho}}   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+Armazenar cartas disponiveis para a rodada  &Carta   \\\cline{1-2}
+Disponibilizar cartas para os jogadores  &Rodada   \\\cline{1-2}
+\multicolumn{2}{|l|}{Embaralhar cartas   }\\\cline{1-2}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogo}}   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogo}}   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+Armazenar os jogadores  &Jogador   \\\cline{1-2}
+Armazenar o placar  &Rodada   \\\cline{1-2}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Rodada}}   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Rodada}}   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+Armazenar os vencedores de cada turno  &Jogador   \\\cline{1-2}
+Valor da rodada  &Baralho   \\\cline{1-2}
+&Cartas   \\\cline{1-2}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogador\+Bot}} \+:: Herança com Jogador   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Classe}}  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Jogador\+Bot}} \+:: Herança com Jogador   }\\\cline{1-2}
+\endhead
+Responsabilidades\+:  &Colaborações\+:   \\\cline{1-2}
+Gerenciar as cartas de sua mão  &Carta   \\\cline{1-2}
+realizar as jogadas automatizadas  &Jogo   \\\cline{1-2}
+&Rodada   \\\cline{1-2}
+\end{longtabu}
